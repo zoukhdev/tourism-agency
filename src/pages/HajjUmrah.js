@@ -25,7 +25,7 @@ const HajjUmrah = () => {
         t('expertGuide'),
         t('transportationIncluded')
       ],
-      image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://imgs.search.brave.com/GdC8B4MAisKqxto0ot-yPCbKKLC99vZs_nLbrh_bJio/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/ZmxhdC1pc2xhbWlj/LWhhamotcGlsZ3Jp/bWFnZS1pbGx1c3Ry/YXRpb25fMjMtMjE0/ODk3MTQwNS5qcGc_/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA',
       rating: 4.9,
       reviews: 127
     },
@@ -45,7 +45,7 @@ const HajjUmrah = () => {
         t('expertGuideBasic'),
         t('transportationIncluded')
       ],
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://imgs.search.brave.com/iriz6OTAkLhb8PkFBWW_Ogilwt-bAtA1mNxWz83rdEI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQ5/NjY2NjM5NS92ZWN0/b3IvaXNsYW1pYy1o/YWpqLXBpbGdyaW1h/Z2UtYS1tdXNsaW0t/Y291cGxlLW9mLXBp/bGdyaW1zLXdlYXJp/bmctaWhyYW0tY2xv/dGhlcy13aXRoLWEt/c3VpdGNhc2UuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPVdT/RTAweFdfYVA1WHBS/TjFXNy1IdG4tbkV5/RHBpXzNPOHJWR0JZ/Nkh4b1k9',
       rating: 4.7,
       reviews: 89
     },
@@ -65,7 +65,7 @@ const HajjUmrah = () => {
         t('privateGuide'),
         t('vipTransportation')
       ],
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://imgs.search.brave.com/dnZ8jVZZg1r13dNiVsbktPhpIw646jcne61Qwvocoq8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/ZGV0YWlsZWQtaXNs/YW1pYy1oYWpqLXBp/bGdyaW1hZ2UtaWxs/dXN0cmF0aW9uXzIz/LTIxNDg5NzE0Mjku/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MCZxPTgw',
       rating: 4.8,
       reviews: 156
     },
@@ -85,7 +85,7 @@ const HajjUmrah = () => {
         t('familyGuide'),
         t('transportationIncluded')
       ],
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://imgs.search.brave.com/hjSXB7AF-1KcWmAQ52Dx4UJ7-A8zUlrOfEwABCR6mOw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/ZmxhdC1oYWpqLW11/YmFyYWstY2FyZHMt/Y29sbGVjdGlvbi13/aXRoLXBlb3BsZS1w/cmF5aW5nLW1lY2Nh/XzIzLTIxNDk0MjUw/OTQuanBnP3NlbXQ9/YWlzX2h5YnJpZCZ3/PTc0MCZxPTgw',
       rating: 4.6,
       reviews: 73
     },
@@ -105,7 +105,7 @@ const HajjUmrah = () => {
         t('groupGuide'),
         t('transportationIncluded')
       ],
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://imgs.search.brave.com/cKcr27qFZBCfBZgHXmeHrfn8gzQjmoIl3cxqGOqenSk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/ZmxhdC1oYWpqLWls/bHVzdHJhdGlvbi13/aXRoLW1hbi1wcmF5/aW5nLW1lY2NhXzIz/LTIxNDk0NDMzMDUu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MCZxPTgw',
       rating: 4.5,
       reviews: 45
     },
@@ -125,7 +125,7 @@ const HajjUmrah = () => {
         t('groupGuide'),
         t('transportationIncluded')
       ],
-      image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://imgs.search.brave.com/GdC8B4MAisKqxto0ot-yPCbKKLC99vZs_nLbrh_bJio/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/ZmxhdC1pc2xhbWlj/LWhhamotcGlsZ3Jp/bWFnZS1pbGx1c3Ry/YXRpb25fMjMtMjE0/ODk3MTQwNS5qcGc_/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA',
       rating: 4.4,
       reviews: 92
     }
