@@ -340,19 +340,19 @@ const HajjUmrah = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{t('hajjRequirements')}</h3>
                   <ul className="text-gray-600 dark:text-gray-300 space-y-1">
-                    <li>• Valid passport with at least 6 months validity</li>
-                    <li>• Hajj visa from Saudi Arabia</li>
-                    <li>• Vaccination certificates (COVID-19, Meningitis)</li>
-                    <li>• Physical fitness certificate</li>
+                    <li>• {t('validPassport6Months')}</li>
+                    <li>• {t('hajjVisaSaudi')}</li>
+                    <li>• {t('vaccinationCertificates')}</li>
+                    <li>• {t('physicalFitnessCertificate')}</li>
                   </ul>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{t('umrahRequirements')}</h3>
                   <ul className="text-gray-600 dark:text-gray-300 space-y-1">
-                    <li>• Valid passport with at least 6 months validity</li>
-                    <li>• Umrah visa from Saudi Arabia</li>
-                    <li>• COVID-19 vaccination certificate</li>
-                    <li>• Travel insurance</li>
+                    <li>• {t('validPassport6Months')}</li>
+                    <li>• {t('umrahVisaSaudi')}</li>
+                    <li>• {t('covidVaccinationCertificate')}</li>
+                    <li>• {t('travelInsurance')}</li>
                   </ul>
                 </div>
               </div>
@@ -369,8 +369,8 @@ const HajjUmrah = () => {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Expert Guidance</h3>
-                    <p className="text-gray-600 dark:text-gray-300">Experienced guides who understand the spiritual significance of your journey</p>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('expertGuidance')}</h3>
+                    <p className="text-gray-600 dark:text-gray-300">{t('experiencedGuidesSpiritual')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -380,8 +380,8 @@ const HajjUmrah = () => {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Premium Accommodations</h3>
-                    <p className="text-gray-600 dark:text-gray-300">Carefully selected hotels close to the Holy Mosques</p>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('premiumAccommodations')}</h3>
+                    <p className="text-gray-600 dark:text-gray-300">{t('carefullySelectedHotels')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -391,8 +391,8 @@ const HajjUmrah = () => {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">24/7 Support</h3>
-                    <p className="text-gray-600 dark:text-gray-300">Round-the-clock assistance throughout your journey</p>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('support247')}</h3>
+                    <p className="text-gray-600 dark:text-gray-300">{t('roundTheClockAssistance')}</p>
                   </div>
                 </div>
               </div>
