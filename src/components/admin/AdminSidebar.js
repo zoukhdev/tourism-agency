@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 
-const AdminSidebar = ({ activeSection, setActiveSection, collapsed }) => {
+const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOpen, setMobileMenuOpen }) => {
   const { t } = useApp();
 
   const menuItems = [
@@ -73,16 +73,33 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed }) => {
   ];
 
   return (
-    <aside className={`fixed left-0 top-20 bottom-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-all duration-300 z-40 ${
-      collapsed ? 'w-16' : 'w-64'
-    }`}>
+    <>
+      {/* Mobile Overlay */}
+      {mobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+      
+      {/* Sidebar */}
+      <aside className={`fixed left-0 top-20 bottom-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-all duration-300 z-40 ${
+        collapsed ? 'w-16' : 'w-64'
+      } ${
+        mobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+      } ${
+        !mobileMenuOpen && collapsed ? 'lg:w-16' : ''
+      }`}>
       <div className="h-full overflow-y-auto">
         <nav className="p-4">
           <ul className="space-y-2">
             {menuItems.map((item) => (
               <li key={item.id}>
                 <button
-                  onClick={() => setActiveSection(item.id)}
+                  onClick={() => {
+                    setActiveSection(item.id);
+                    setMobileMenuOpen(false);
+                  }}
                   className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
                     activeSection === item.id
                       ? 'bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300'
@@ -125,6 +142,7 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed }) => {
         )}
       </div>
     </aside>
+    </>
   );
 };
 
