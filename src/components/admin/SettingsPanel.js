@@ -61,7 +61,7 @@ const SettingsPanel = () => {
 
   const renderGeneralSettings = () => (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             {t('siteName')}
@@ -98,7 +98,7 @@ const SettingsPanel = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             {t('contactPhone')}
@@ -123,7 +123,7 @@ const SettingsPanel = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             {t('currency')}
@@ -344,7 +344,7 @@ const SettingsPanel = () => {
 
       <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
         <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-4">File Upload Settings</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               {t('maximumFileSize')}
@@ -377,7 +377,7 @@ const SettingsPanel = () => {
 
   const renderEmailSettings = () => (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             {t('smtpHost')}
@@ -392,7 +392,7 @@ const SettingsPanel = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             {t('smtpUsername')}
@@ -441,7 +441,7 @@ const SettingsPanel = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
           <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{t('createBackup')}</h4>
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
@@ -521,11 +521,11 @@ const SettingsPanel = () => {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('settings')}</h1>
-        <p className="text-gray-600 dark:text-gray-300">{t('configureWebsiteSettings')}</p>
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">{t('settings')}</h1>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{t('configureWebsiteSettings')}</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">
         {/* Settings Navigation */}
         <div className="lg:col-span-1">
           <nav className="space-y-1">
@@ -533,14 +533,14 @@ const SettingsPanel = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                className={`w-full flex items-center px-3 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors duration-200 ${
                   activeTab === tab.id
                     ? 'bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
-                <span className="mr-3">{tab.icon}</span>
-                {tab.label}
+                <span className="mr-2 sm:mr-3 text-sm sm:text-base">{tab.icon}</span>
+                <span className="truncate">{tab.label}</span>
               </button>
             ))}
           </nav>
@@ -548,12 +548,12 @@ const SettingsPanel = () => {
 
         {/* Settings Content */}
         <div className="lg:col-span-3">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
             {renderActiveTab()}
             
             {/* Save Button */}
-            <div className="flex justify-end pt-6 border-t border-gray-200 dark:border-gray-700 mt-6">
-              <button className="btn-primary">
+            <div className="flex justify-end pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-700 mt-4 sm:mt-6">
+              <button className="btn-primary w-full sm:w-auto">
                 {t('save')} {t('settings')}
               </button>
             </div>
