@@ -113,6 +113,21 @@ export const AppProvider = ({ children }) => {
       roundTheClockAssistance: 'Round-the-clock assistance throughout your journey',
       whyChooseOurPackages: 'Why Choose Our Packages?',
       
+      // Footer
+      footerDescription: 'Your trusted partner for Hajj, Umrah, and global tourism experiences. We provide exceptional service and unforgettable journeys that create lasting memories.',
+      quickLinks: 'Quick Links',
+      contactInfo: 'Contact Info',
+      facebook: 'Facebook',
+      instagram: 'Instagram',
+      twitter: 'Twitter',
+      phoneNumber: '+1 (555) 123-4567',
+      emailAddress: 'info@alhijrahtourism.com',
+      address: '123 Tourism Street',
+      addressLine2: 'Travel City, TC 12345',
+      copyright: '© 2024 Al-Hijrah Tourism. All rights reserved.',
+      privacyPolicy: 'Privacy Policy',
+      termsOfService: 'Terms of Service',
+      
       // Package Content
       premiumHajjPackage: 'Premium Hajj Package 2024',
       standardHajjPackage: 'Standard Hajj Package 2024',
@@ -718,6 +733,21 @@ export const AppProvider = ({ children }) => {
       roundTheClockAssistance: 'مساعدة على مدار الساعة طوال رحلتك',
       whyChooseOurPackages: 'لماذا تختار حزمنا؟',
       
+      // Footer
+      footerDescription: 'شريكك الموثوق في تجارب الحج والعمرة والسياحة العالمية. نقدم خدمة استثنائية ورحلات لا تُنسى تخلق ذكريات دائمة.',
+      quickLinks: 'روابط سريعة',
+      contactInfo: 'معلومات الاتصال',
+      facebook: 'فيسبوك',
+      instagram: 'إنستغرام',
+      twitter: 'تويتر',
+      phoneNumber: '+1 (555) 123-4567',
+      emailAddress: 'info@alhijrahtourism.com',
+      address: 'شارع السياحة 123',
+      addressLine2: 'مدينة السفر، تي سي 12345',
+      copyright: '© 2024 الهجرة للسياحة. جميع الحقوق محفوظة.',
+      privacyPolicy: 'سياسة الخصوصية',
+      termsOfService: 'شروط الخدمة',
+      
       // Package Content
       premiumHajjPackage: 'حزمة الحج المميزة 2024',
       standardHajjPackage: 'حزمة الحج العادية 2024',
@@ -1322,6 +1352,21 @@ export const AppProvider = ({ children }) => {
       carefullySelectedHotels: 'Hôtels soigneusement sélectionnés près des Mosquées Saintes',
       roundTheClockAssistance: 'Assistance 24h/24 tout au long de votre voyage',
       whyChooseOurPackages: 'Pourquoi Choisir Nos Forfaits?',
+      
+      // Footer
+      footerDescription: 'Votre partenaire de confiance pour les expériences de Hajj, Omra et tourisme mondial. Nous fournissons un service exceptionnel et des voyages inoubliables qui créent des souvenirs durables.',
+      quickLinks: 'Liens Rapides',
+      contactInfo: 'Informations de Contact',
+      facebook: 'Facebook',
+      instagram: 'Instagram',
+      twitter: 'Twitter',
+      phoneNumber: '+1 (555) 123-4567',
+      emailAddress: 'info@alhijrahtourism.com',
+      address: '123 Rue du Tourisme',
+      addressLine2: 'Ville de Voyage, TC 12345',
+      copyright: '© 2024 Al-Hijrah Tourism. Tous droits réservés.',
+      privacyPolicy: 'Politique de Confidentialité',
+      termsOfService: 'Conditions de Service',
       
       // Package Content
       premiumHajjPackage: 'Forfait Hajj Premium 2024',
