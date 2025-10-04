@@ -1,3 +1,15 @@
+/**
+ * Footer Component - Website footer with links and information
+ * 
+ * Features:
+ * - Company information and branding
+ * - Quick navigation links
+ * - Contact information
+ * - Social media links
+ * - Copyright notice
+ * - Newsletter subscription
+ */
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';

@@ -1,3 +1,14 @@
+/**
+ * Homepage Component - Main landing page of the tourism website
+ * 
+ * Features:
+ * - Hero section with rotating background images
+ * - Services overview section
+ * - Special offers showcase
+ * - Why choose us section
+ * - Call-to-action section
+ */
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
@@ -5,18 +16,22 @@ import { useApp } from '../context/AppContext';
 const Homepage = () => {
   const { t } = useApp();
   
-  // Background slider state
+  // ===========================================
+  // HERO SLIDER STATE AND CONFIGURATION
+  // ===========================================
+  
+  // Background slider state - tracks current image index
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // Background images for the hero slider
+  // Background images for the hero slider - 4 high-quality travel images
   const backgroundImages = [
-    "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", // Kaaba/Masjid al-Haram
+    "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", // Beautiful mosque architecture
+    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", // Scenic landscape
+    "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"  // Travel destination
   ];
 
-  // Auto-rotate background images every 5 seconds
+  // Auto-rotate background images every 5 seconds with smooth transitions
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
@@ -27,6 +42,11 @@ const Homepage = () => {
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
 
+  // ===========================================
+  // DATA ARRAYS FOR PAGE CONTENT
+  // ===========================================
+  
+  // Special offers data - promotional packages with discounts
   const specialOffers = [
     {
       id: 1,
@@ -54,6 +74,7 @@ const Homepage = () => {
     }
   ];
 
+  // Services data - main service offerings with icons and descriptions
   const services = [
     {
       icon: (
@@ -96,7 +117,10 @@ const Homepage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* ===========================================
+          HERO SECTION
+          Main banner with rotating background images
+      =========================================== */}
       <section className="relative text-white overflow-hidden">
         {/* Background Image Slider */}
         <div className="absolute inset-0">
@@ -135,7 +159,10 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* ===========================================
+          SERVICES SECTION
+          Overview of main service offerings
+      =========================================== */}
       <section className="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -164,7 +191,10 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Special Offers Section */}
+      {/* ===========================================
+          SPECIAL OFFERS SECTION
+          Promotional packages with discounts
+      =========================================== */}
       <section className="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -213,7 +243,10 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* ===========================================
+          WHY CHOOSE US SECTION
+          Key features and benefits
+      =========================================== */}
       <section className="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -280,7 +313,10 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ===========================================
+          CALL-TO-ACTION SECTION
+          Final conversion section with booking links
+      =========================================== */}
       <section className="py-16 bg-primary-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">

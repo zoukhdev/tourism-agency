@@ -1,3 +1,15 @@
+/**
+ * Header Component - Main navigation bar
+ * 
+ * Features:
+ * - Responsive navigation menu
+ * - Language switcher with dropdown
+ * - Dark mode toggle
+ * - User authentication state management
+ * - Mobile hamburger menu
+ * - Active page highlighting
+ */
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
