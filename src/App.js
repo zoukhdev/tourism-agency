@@ -11,6 +11,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
+import ErrorBoundary from './components/ErrorBoundary';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
@@ -27,10 +28,11 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 
 function App() {
   return (
-    <AppProvider>
-      <Router>
-        {/* Main app container with dark mode support */}
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <ErrorBoundary>
+      <AppProvider>
+        <Router>
+          {/* Main app container with dark mode support */}
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
           <Routes>
             {/* ===========================================
                 ADMIN ROUTES
@@ -86,9 +88,10 @@ function App() {
               </>
             } />
           </Routes>
-        </div>
-      </Router>
-    </AppProvider>
+          </div>
+        </Router>
+      </AppProvider>
+    </ErrorBoundary>
   );
 }
 

@@ -12,9 +12,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
+import DebugPanel from '../components/DebugPanel';
+import { debugLog, performanceMonitor, lifecycleLogger } from '../utils/debug';
 
 const Homepage = () => {
   const { t } = useApp();
+  
+  // Debug logging using debug utilities
+  debugLog.info('Homepage component rendered', { language: t('home') }, 'Homepage');
   
   // ===========================================
   // HERO SLIDER STATE AND CONFIGURATION
@@ -33,13 +38,23 @@ const Homepage = () => {
 
   // Auto-rotate background images every 5 seconds with smooth transitions
   useEffect(() => {
+    debugLog.info('Hero slider effect initialized', null, 'Homepage');
+    performanceMonitor.start('hero-slider-setup');
+    
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
-      );
+      setCurrentImageIndex((prevIndex) => {
+        const newIndex = prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1;
+        debugLog.debug('Hero image changed', { from: prevIndex, to: newIndex }, 'Homepage');
+        return newIndex;
+      });
     }, 5000);
 
-    return () => clearInterval(interval);
+    performanceMonitor.end('hero-slider-setup');
+
+    return () => {
+      debugLog.info('Hero slider effect cleaned up', null, 'Homepage');
+      clearInterval(interval);
+    };
   }, [backgroundImages.length]);
 
   // ===========================================
@@ -335,6 +350,17 @@ const Homepage = () => {
             </div>
         </div>
       </section>
+      
+      {/* Debug Panel - Only visible in development */}
+      <DebugPanel 
+        componentName="Homepage" 
+        props={{ 
+          currentImageIndex, 
+          backgroundImagesCount: backgroundImages.length,
+          specialOffersCount: specialOffers.length,
+          servicesCount: services.length
+        }} 
+      />
     </div>
   );
 };
