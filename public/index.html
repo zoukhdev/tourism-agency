@@ -18,5 +18,26 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    
+    <!-- Error handling for browser extensions -->
+    <script>
+      // Handle browser extension errors gracefully
+      window.addEventListener('error', function(e) {
+        if (e.message && e.message.includes('message channel closed')) {
+          // Ignore browser extension errors
+          e.preventDefault();
+          return false;
+        }
+      });
+      
+      // Handle unhandled promise rejections from extensions
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e.reason && e.reason.message && e.reason.message.includes('message channel closed')) {
+          // Ignore browser extension errors
+          e.preventDefault();
+          return false;
+        }
+      });
+    </script>
   </body>
 </html>

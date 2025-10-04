@@ -1,19 +1,9 @@
 {
   "short_name": "Al-Hijrah Tourism",
   "name": "Al-Hijrah Tourism - Your Journey Begins Here",
-  "icons": [
-    {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    }
-  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#1e40af",
   "background_color": "#ffffff",
-  "description": "Your trusted partner for Hajj, Umrah, and global tourism experiences. We provide exceptional service and unforgettable journeys that create lasting memories.",
-  "categories": ["travel", "tourism", "hajj", "umrah"],
-  "lang": "en",
-  "orientation": "portrait-primary"
+  "description": "Your trusted partner for Hajj, Umrah, and global tourism experiences. We provide exceptional service and unforgettable journeys that create lasting memories."
 }
