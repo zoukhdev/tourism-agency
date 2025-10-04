@@ -30,7 +30,12 @@ function App() {
   return (
     <ErrorBoundary>
       <AppProvider>
-        <Router>
+        <Router 
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true
+          }}
+        >
           {/* Main app container with dark mode support */}
           <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
           <Routes>

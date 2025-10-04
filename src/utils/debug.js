@@ -11,15 +11,42 @@
 // Debug configuration
 const DEBUG_CONFIG = {
   enabled: process.env.NODE_ENV === 'development',
-  logLevel: 'info', // 'error', 'warn', 'info', 'debug'
+  logLevel: 'warn', // 'error', 'warn', 'info', 'debug' - changed to reduce spam
   showTimestamps: true,
-  showComponentName: true
+  showComponentName: true,
+  // Component-specific logging control
+  components: {
+    Homepage: {
+      logRenders: false, // Disable render logging for Homepage
+      logStateChanges: true,
+      logPerformance: true
+    }
+  }
+};
+
+// Helper function to check if component should log
+const shouldLog = (level, component = '') => {
+  if (!DEBUG_CONFIG.enabled) return false;
+  
+  const levels = ['error', 'warn', 'info', 'debug'];
+  const currentLevelIndex = levels.indexOf(DEBUG_CONFIG.logLevel);
+  const messageLevelIndex = levels.indexOf(level);
+  
+  if (messageLevelIndex > currentLevelIndex) return false;
+  
+  // Check component-specific settings
+  if (component && DEBUG_CONFIG.components[component]) {
+    const compConfig = DEBUG_CONFIG.components[component];
+    if (level === 'info' && !compConfig.logRenders) return false;
+  }
+  
+  return true;
 };
 
 // Debug logger with different levels
 export const debugLog = {
   error: (message, data = null, component = '') => {
-    if (DEBUG_CONFIG.enabled) {
+    if (shouldLog('error', component)) {
       const timestamp = DEBUG_CONFIG.showTimestamps ? `[${new Date().toISOString()}]` : '';
       const componentName = DEBUG_CONFIG.showComponentName && component ? `[${component}]` : '';
       console.error(`🔴 ERROR ${timestamp} ${componentName}`, message, data);
@@ -27,7 +54,7 @@ export const debugLog = {
   },
 
   warn: (message, data = null, component = '') => {
-    if (DEBUG_CONFIG.enabled) {
+    if (shouldLog('warn', component)) {
       const timestamp = DEBUG_CONFIG.showTimestamps ? `[${new Date().toISOString()}]` : '';
       const componentName = DEBUG_CONFIG.showComponentName && component ? `[${component}]` : '';
       console.warn(`🟡 WARN ${timestamp} ${componentName}`, message, data);
@@ -35,7 +62,7 @@ export const debugLog = {
   },
 
   info: (message, data = null, component = '') => {
-    if (DEBUG_CONFIG.enabled) {
+    if (shouldLog('info', component)) {
       const timestamp = DEBUG_CONFIG.showTimestamps ? `[${new Date().toISOString()}]` : '';
       const componentName = DEBUG_CONFIG.showComponentName && component ? `[${component}]` : '';
       console.info(`🔵 INFO ${timestamp} ${componentName}`, message, data);
@@ -43,7 +70,7 @@ export const debugLog = {
   },
 
   debug: (message, data = null, component = '') => {
-    if (DEBUG_CONFIG.enabled) {
+    if (shouldLog('debug', component)) {
       const timestamp = DEBUG_CONFIG.showTimestamps ? `[${new Date().toISOString()}]` : '';
       const componentName = DEBUG_CONFIG.showComponentName && component ? `[${component}]` : '';
       console.log(`🟢 DEBUG ${timestamp} ${componentName}`, message, data);

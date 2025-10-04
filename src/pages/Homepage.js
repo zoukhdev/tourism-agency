@@ -18,8 +18,10 @@ import { debugLog, performanceMonitor, lifecycleLogger } from '../utils/debug';
 const Homepage = () => {
   const { t } = useApp();
   
-  // Debug logging using debug utilities
-  debugLog.info('Homepage component rendered', { language: t('home') }, 'Homepage');
+  // Debug logging using debug utilities (reduced frequency)
+  useEffect(() => {
+    debugLog.info('Homepage component mounted', { language: t('home') }, 'Homepage');
+  }, []);
   
   // ===========================================
   // HERO SLIDER STATE AND CONFIGURATION
@@ -44,7 +46,10 @@ const Homepage = () => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => {
         const newIndex = prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1;
-        debugLog.debug('Hero image changed', { from: prevIndex, to: newIndex }, 'Homepage');
+        // Only log every 4th change to reduce console spam
+        if (newIndex === 0) {
+          debugLog.debug('Hero slider completed full cycle', { totalImages: backgroundImages.length }, 'Homepage');
+        }
         return newIndex;
       });
     }, 5000);
