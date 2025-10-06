@@ -159,7 +159,7 @@ const Homepage = () => {
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-800 opacity-80"></div>
         <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-44 md:py-52">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-56 md:py-64">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {t('heroTitle')}
