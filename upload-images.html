@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Images to ImgBB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .step h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🕌 Upload Your Mosque Images to ImgBB</h1>
+        
+        <div class="step">
+            <h3>Step 1: Go to ImgBB</h3>
+            <p>Visit <a href="https://imgbb.com/" target="_blank">https://imgbb.com/</a></p>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Upload Your Images</h3>
+            <p>Upload these three images one by one:</p>
+            <ul>
+                <li><strong>pexels-burak-karaduman-712806-1549326.jpg</strong> (Grand mosque with bridge)</li>
+                <li><strong>pexels-rushdi-fatani-782816372-19042360.jpg</strong> (Kaaba close-up)</li>
+                <li><strong>pexels-w4ed-3742589.jpg</strong> (Grand mosque panoramic view)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Get Direct Links</h3>
+            <p>For each uploaded image:</p>
+            <ol>
+                <li>Click on the uploaded image</li>
+                <li>Copy the "Direct link" URL</li>
+                <li>It should look like: <code>https://i.ibb.co/xxxxx/image-name.jpg</code></li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 4: Update Your Code</h3>
+            <p>Replace the image URLs in your <code>Homepage.js</code> file with your ImgBB URLs:</p>
+            <div class="code-block">
+const backgroundImages = [
+  "YOUR_IMGBB_URL_1", // Grand mosque with bridge
+  "YOUR_IMGBB_URL_2", // Kaaba close-up  
+  "YOUR_IMGBB_URL_3", // Grand mosque panoramic view
+  "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+];
+            </div>
+        </div>
+
+        <div class="highlight">
+            <strong>💡 Pro Tip:</strong> ImgBB automatically optimizes your images and provides fast CDN delivery, which will work perfectly with Vercel!
+        </div>
+
+        <div class="step">
+            <h3>Alternative: Use Cloudinary</h3>
+            <p>If ImgBB doesn't work, try <a href="https://cloudinary.com/" target="_blank">Cloudinary</a> - it's also free and very reliable for image hosting.</p>
+        </div>
+    </div>
+</body>
+</html>
