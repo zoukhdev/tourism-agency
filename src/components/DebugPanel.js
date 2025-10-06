@@ -100,3 +100,5 @@ const DebugPanel = ({ componentName, props = {} }) => {
 };
 
 export default DebugPanel;
+
+
