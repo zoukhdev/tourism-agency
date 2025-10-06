@@ -30,11 +30,11 @@ const Homepage = () => {
   // Background slider state - tracks current image index
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // Background images for the hero slider - using optimized mosque and Kaaba images
+  // Background images for the hero slider - using your original mosque and Kaaba images from Pexels
   const backgroundImages = [
-    "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", // Kaaba/Masjid al-Haram
-    "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", // Beautiful mosque architecture
-    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", // Scenic landscape
+    "https://images.pexels.com/photos/1549326/pexels-photo-1549326.jpeg", // Grand mosque with bridge
+    "https://images.pexels.com/photos/19042360/pexels-photo-19042360.jpeg", // Kaaba close-up
+    "https://images.pexels.com/photos/3742589/pexels-photo-3742589.jpeg", // Grand mosque panoramic view
     "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"  // Travel destination
   ];
 
