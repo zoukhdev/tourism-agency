@@ -23,9 +23,10 @@ const AdminHeader = ({ sidebarCollapsed, setSidebarCollapsed, mobileMenuOpen, se
   }, [setIsLanguageDropdownOpen]);
 
   const handleLogout = () => {
-    // Clear admin authentication data
-    localStorage.removeItem('admin');
-    localStorage.removeItem('isAdminAuthenticated');
+    // SECURITY: Clear all admin authentication data
+    sessionStorage.removeItem('admin');
+    sessionStorage.removeItem('isAdminAuthenticated');
+    localStorage.removeItem('adminRemember');
     
     // Close user menu
     setShowUserMenu(false);

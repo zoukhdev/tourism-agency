@@ -32,6 +32,7 @@ export const AppProvider = ({ children }) => {
     { code: 'fr', name: 'Français', flag: '🇫🇷' }
   ];
 
+  // Clean translations object with no duplicates
   const translations = {
     en: {
       // Navigation
@@ -98,43 +99,19 @@ export const AppProvider = ({ children }) => {
       packageIncludes: 'Package includes:',
       moreFeatures: 'more features',
       viewDetails: 'View Details',
-      importantInformation: 'Important Information',
-      hajjRequirements: 'Hajj Requirements',
-      umrahRequirements: 'Umrah Requirements',
-      validPassport6Months: 'Valid passport with at least 6 months validity',
-      hajjVisaSaudi: 'Hajj visa from Saudi Arabia',
-      vaccinationCertificates: 'Vaccination certificates (COVID-19, Meningitis)',
-      physicalFitnessCertificate: 'Physical fitness certificate',
-      umrahVisaSaudi: 'Umrah visa from Saudi Arabia',
-      covidVaccinationCertificate: 'COVID-19 vaccination certificate',
-      travelInsurance: 'Travel insurance',
-      experiencedGuidesSpiritual: 'Experienced guides who understand the spiritual significance of your journey',
-      carefullySelectedHotels: 'Carefully selected hotels close to the Holy Mosques',
-      roundTheClockAssistance: 'Round-the-clock assistance throughout your journey',
-      whyChooseOurPackages: 'Why Choose Our Packages?',
+      reviews: 'reviews',
       
-      // Footer
-      footerDescription: 'Your trusted partner for Hajj, Umrah, and global tourism experiences. We provide exceptional service and unforgettable journeys that create lasting memories.',
-      quickLinks: 'Quick Links',
-      contactInfo: 'Contact Info',
-      facebook: 'Facebook',
-      instagram: 'Instagram',
-      twitter: 'Twitter',
-      phoneNumber: '+1 (555) 123-4567',
-      emailAddress: 'info@alhijrahtourism.com',
-      address: '123 Tourism Street',
-      addressLine2: 'Travel City, TC 12345',
-      copyright: '© 2024 ZoukhDev. All rights reserved.',
-      privacyPolicy: 'Privacy Policy',
-      termsOfService: 'Terms of Service',
-      
-      // Package Content
-      premiumHajjPackage: 'Premium Hajj Package 2024',
-      standardHajjPackage: 'Standard Hajj Package 2024',
+      // Package Types
+      premiumHajjPackage: 'Premium Hajj Package',
+      standardHajjPackage: 'Standard Hajj Package',
+      budgetHajjPackage: 'Budget Hajj Package',
+      familyHajjPackage: 'Family Hajj Package',
       luxuryUmrahPackage: 'Luxury Umrah Package',
       standardUmrahPackage: 'Standard Umrah Package',
       budgetUmrahPackage: 'Budget Umrah Package',
-      familyHajjPackage: 'Family Hajj Package',
+      familyUmrahPackage: 'Family Umrah Package',
+      quickUmrahPackage: 'Quick Umrah Package',
+      economyHajjPackage: 'Economy Hajj Package 2024',
       
       // Package Descriptions
       premiumHajjDesc: 'Complete Hajj experience with 5-star accommodation in Makkah and Madinah',
@@ -143,6 +120,8 @@ export const AppProvider = ({ children }) => {
       standardUmrahDesc: 'Comfortable Umrah journey with quality accommodation and essential services',
       budgetUmrahDesc: 'Affordable Umrah package with basic accommodation and essential services',
       familyHajjDesc: 'Family-friendly Hajj package with spacious accommodations and child-friendly services',
+      familyUmrahDesc: 'Perfect for families with children, including family-friendly accommodations',
+      quickUmrahDesc: 'Short and sweet Umrah journey for those with limited time',
       
       // Package Features
       roundTripFlights: 'Round-trip flights',
@@ -157,502 +136,283 @@ export const AppProvider = ({ children }) => {
       expertGuide: 'Expert guide throughout',
       expertGuideBasic: 'Expert guide',
       transportationIncluded: 'Transportation included',
-      visaAssistance: 'Visa assistance',
       groupSize: 'Small group size (max 20)',
       familyServices: 'Family-friendly services',
       childCare: 'Child care services',
       
-      // Additional Package Content
-      familyUmrahPackage: 'Family Umrah Package',
-      quickUmrahPackage: 'Quick Umrah Package',
-      economyHajjPackage: 'Economy Hajj Package 2024',
-      
-      // Additional Package Descriptions
-      familyUmrahDesc: 'Perfect for families with children, including family-friendly accommodations',
-      quickUmrahDesc: 'Short and sweet Umrah journey for those with limited time',
-      economyHajjDesc: 'Affordable Hajj package with essential services and comfortable accommodation',
-      
-      // Additional Package Features
-      privateGuide: 'Private guide',
-      vipTransportation: 'VIP transportation',
-      familyFriendlyMakkah: 'Family-friendly hotel in Makkah (3 nights)',
-      familyFriendlyMadinah: 'Family-friendly hotel in Madinah (3 nights)',
-      familyGuide: 'Family guide',
-      groupGuide: 'Group guide',
-      
-      // Global Tourism Page
+      // Global Tourism
       globalTourismTitle: 'Global Tourism Packages',
-      globalTourismSubtitle: 'Discover the world\'s most amazing destinations with our carefully curated travel packages. From cultural heritage to adventure sports, we have something for every traveler.',
-      destination: 'Destination',
-      allDestinations: 'All Destinations',
-      europe: 'Europe',
-      asia: 'Asia',
-      africa: 'Africa',
-      americas: 'Americas',
-      middleEast: 'Middle East',
-      oceania: 'Oceania',
-      interest: 'Interest',
-      allInterests: 'All Interests',
-      cultural: 'Cultural',
-      adventure: 'Adventure',
-      wildlife: 'Wildlife',
-      nature: 'Nature',
-      relaxation: 'Relaxation',
-      chooseGlobalPackages: 'Choose from our diverse collection of global travel experiences',
-      popularDestinations: 'Popular Destinations',
-      popularDestinationsSubtitle: 'Discover the world\'s most sought-after travel destinations',
-      packagesAvailable: 'packages available',
-      whyChooseGlobalTours: 'Why Choose Our Global Tours?',
-      whyChooseGlobalToursSubtitle: 'Experience the world with confidence and comfort',
-      expertLocalGuides: 'Expert Local Guides',
-      expertLocalGuidesDesc: 'Our knowledgeable local guides ensure you experience the authentic culture and hidden gems of each destination.',
-      curatedExperiences: 'Curated Experiences',
-      curatedExperiencesDesc: 'Every itinerary is carefully crafted to provide unique experiences that go beyond typical tourist attractions.',
-      support247Global: '24/7 Support',
-      support247GlobalDesc: 'Round-the-clock assistance throughout your journey to ensure a smooth and worry-free travel experience.',
+      globalTourismSubtitle: 'Discover the world with our carefully curated travel experiences. From cultural heritage tours to adventure expeditions, we offer unforgettable journeys across the globe.',
       
-      // Contact Page
-      contactTitle: 'Contact Us',
-      contactSubtitle: 'We\'re here to help you plan your perfect journey. Get in touch with our travel experts for personalized assistance with your Hajj, Umrah, or global tourism needs.',
-      phone: 'Phone',
+      // Booking Form
+      serviceSelection: 'Service Selection',
+      personalInformation: 'Personal Information',
+      travelDetails: 'Travel Details',
+      emergencyContact: 'Emergency Contact',
+      paymentConfirmation: 'Payment Confirmation',
+      firstName: 'First Name',
+      lastName: 'Last Name',
       email: 'Email',
-      address: 'Address',
-      businessHours: 'Business Hours',
-      sendMessage: 'Send us a Message',
-      fullName: 'Full Name',
-      emailAddress: 'Email Address',
-      phoneNumber: 'Phone Number',
-      inquiryType: 'Inquiry Type',
-      hajjInquiry: 'Hajj Inquiry',
-      umrahInquiry: 'Umrah Inquiry',
-      globalTourismInquiry: 'Global Tourism',
-      bookingSupport: 'Booking Support',
-      generalInquiry: 'General Inquiry',
-      complaint: 'Complaint',
-      other: 'Other',
+      phone: 'Phone',
+      dateOfBirth: 'Date of Birth',
+      nationality: 'Nationality',
+      passportNumber: 'Passport Number',
+      passportExpiry: 'Passport Expiry',
+      departureCity: 'Departure City',
+      preferredDepartureDate: 'Preferred Departure Date',
+      returnDate: 'Return Date',
+      numberOfTravelers: 'Number of Travelers',
+      roomType: 'Room Type',
+      specialRequests: 'Special Requests',
+      travelInsurance: 'Travel Insurance',
+      visaAssistance: 'Visa Assistance',
+      airportTransfer: 'Airport Transfer',
+      emergencyContactName: 'Emergency Contact Name',
+      emergencyContactPhone: 'Emergency Contact Phone',
+      emergencyContactRelation: 'Emergency Contact Relation',
+      paymentMethod: 'Payment Method',
+      agreeToTerms: 'Agree to Terms',
+      singleRoom: 'Single Room',
+      doubleRoom: 'Double Room',
+      tripleRoom: 'Triple Room',
+      quadRoom: 'Quad Room',
+      extraBaggageAllowance: 'Extra Baggage Allowance',
+      seatSelection: 'Seat Selection',
+      mealUpgrade: 'Meal Upgrade',
+      inFlightWifi: 'In-Flight WiFi',
+      creditCard: 'Credit Card',
+      debitCard: 'Debit Card',
+      bankTransfer: 'Bank Transfer',
+      installments: 'Installments',
+      
+      // Contact Us
+      contactUs: 'Contact Us',
+      contactUsSubtitle: 'Get in touch with us for any questions or assistance with your travel plans',
+      name: 'Name',
       subject: 'Subject',
       message: 'Message',
-      preferredContactMethod: 'Preferred Contact Method',
-      visitOurOffice: 'Visit Our Office',
-      officeHours: 'Office Hours',
-      mondayFriday: 'Monday - Friday',
+      inquiryType: 'Inquiry Type',
+      generalInquiry: 'General Inquiry',
+      bookingInquiry: 'Booking Inquiry',
+      supportRequest: 'Support Request',
+      feedback: 'Feedback',
+      other: 'Other',
+      submit: 'Submit',
+      contactInfo: 'Contact Information',
+      address: 'Address',
+      emailAddress: 'Email Address',
+      phoneNumber: 'Phone Number',
+      workingHours: 'Working Hours',
+      mondayToFriday: 'Monday to Friday',
       saturday: 'Saturday',
       sunday: 'Sunday',
-      closed: 'Closed',
+      contactMethods: 'Contact Methods',
+      
+      // Authentication
+      login: 'Login',
+      signup: 'Sign Up',
+      logout: 'Logout',
+      adminLogin: 'Admin Login',
+      adminLoginSubtitle: 'Access the admin dashboard',
+      demoCredentials: 'Demo Credentials',
+      password: 'Password',
+      rememberMe: 'Remember Me',
+      forgotPassword: 'Forgot Password?',
+      backToWebsite: 'Back to Website',
+      signingIn: 'Signing In...',
+      signIn: 'Sign In',
+      firstNameRequired: 'First name is required',
+      lastNameRequired: 'Last name is required',
+      emailRequired: 'Email is required',
+      emailInvalid: 'Email is invalid',
+      phoneRequired: 'Phone number is required',
+      phoneInvalid: 'Phone number is invalid',
+      passwordRequired: 'Password is required',
+      passwordMinLength: 'Password must be at least 6 characters',
+      passwordMinLength8: 'Password must be at least 8 characters',
+      passwordComplexity: 'Password must contain uppercase, lowercase, number, and special character',
+      confirmPasswordRequired: 'Confirm password is required',
+      passwordsDoNotMatch: 'Passwords do not match',
+      mustAgreeToTerms: 'You must agree to the terms and conditions',
+      invalidCredentials: 'Invalid credentials',
+      loginError: 'Login error occurred',
+      
+      // Profile
+      profile: 'Profile',
+      profileSettings: 'Profile Settings',
+      personalInfo: 'Personal Information',
+      bookingHistory: 'Booking History',
+      preferences: 'Preferences',
+      notifications: 'Notifications',
+      privacy: 'Privacy',
+      security: 'Security',
+      editProfile: 'Edit Profile',
+      saveChanges: 'Save Changes',
+      cancel: 'Cancel',
+      
+      // Admin Dashboard
+      adminDashboard: 'Admin Dashboard',
+      dashboardOverview: 'Dashboard Overview',
+      packageManagement: 'Package Management',
+      bookingManagement: 'Booking Management',
+      userManagement: 'User Management',
+      contentManagement: 'Content Management',
+      analyticsDashboard: 'Analytics Dashboard',
+      settingsPanel: 'Settings Panel',
+      totalBookings: 'Total Bookings',
+      totalRevenue: 'Total Revenue',
+      activeUsers: 'Active Users',
+      pendingBookings: 'Pending Bookings',
+      recentBookings: 'Recent Bookings',
+      topPerformingPackages: 'Top Performing Packages',
+      customerInsights: 'Customer Insights',
+      newCustomers: 'New Customers',
+      returningCustomers: 'Returning Customers',
+      averageAge: 'Average Age',
+      topCountries: 'Top Countries',
+      generalSettings: 'General Settings',
+      appearance: 'Appearance',
+      emailSettings: 'Email Settings',
+      backupRestore: 'Backup & Restore',
+      siteName: 'Site Name',
+      siteDescription: 'Site Description',
+      contactEmail: 'Contact Email',
+      contactPhone: 'Contact Phone',
+      currency: 'Currency',
+      timezone: 'Timezone',
+      dateFormat: 'Date Format',
+      defaultLanguage: 'Default Language',
+      theme: 'Theme',
+      brandColors: 'Brand Colors',
+      primary: 'Primary',
+      secondary: 'Secondary',
+      accent: 'Accent',
+      background: 'Background',
+      emailNotifications: 'Email Notifications',
+      smsNotifications: 'SMS Notifications',
+      maintenanceMode: 'Maintenance Mode',
+      allowUserRegistration: 'Allow User Registration',
+      requireEmailVerification: 'Require Email Verification',
+      maximumFileSize: 'Maximum File Size',
+      allowedFileTypes: 'Allowed File Types',
+      smtpHost: 'SMTP Host',
+      smtpPort: 'SMTP Port',
+      smtpUsername: 'SMTP Username',
+      smtpPassword: 'SMTP Password',
+      fromEmailAddress: 'From Email Address',
+      fromName: 'From Name',
+      testEmailConfiguration: 'Test Email Configuration',
+      saveEmailSettings: 'Save Email Settings',
+      createBackup: 'Create Backup',
+      restoreBackup: 'Restore Backup',
+      backupHistory: 'Backup History',
+      createBackupNow: 'Create Backup Now',
+      download: 'Download',
+      
+      // Common Actions
+      add: 'Add',
+      edit: 'Edit',
+      delete: 'Delete',
+      view: 'View',
+      save: 'Save',
+      confirm: 'Confirm',
+      back: 'Back',
+      next: 'Next',
+      previous: 'Previous',
+      search: 'Search',
+      filter: 'Filter',
+      sort: 'Sort',
+      export: 'Export',
+      import: 'Import',
+      refresh: 'Refresh',
+      loading: 'Loading...',
+      error: 'Error',
+      success: 'Success',
+      warning: 'Warning',
+      info: 'Information',
+      
+      // Status
+      active: 'Active',
+      inactive: 'Inactive',
+      pending: 'Pending',
+      approved: 'Approved',
+      rejected: 'Rejected',
+      cancelled: 'Cancelled',
+      completed: 'Completed',
+      inProgress: 'In Progress',
+      draft: 'Draft',
+      published: 'Published',
+      
+      // User Types
+      admin: 'Admin',
+      staff: 'Staff',
+      userType: 'User Type',
+      fullName: 'Full Name',
+      joinDate: 'Join Date',
+      lastLogin: 'Last Login',
+      status: 'Status',
+      role: 'Role',
+      permissions: 'Permissions',
+      department: 'Department',
+      
+      // Booking Status
+      bookingId: 'Booking ID',
+      bookingDate: 'Booking Date',
+      travelDate: 'Travel Date',
+      travelers: 'Travelers',
+      amount: 'Amount',
+      payment: 'Payment',
+      actions: 'Actions',
+      customer: 'Customer',
+      package: 'Package',
+      price: 'Price',
+      revenue: 'Revenue',
+      bookings: 'Bookings',
+      
+      // Content Management
+      addContent: 'Add Content',
+      contentType: 'Content Type',
+      title: 'Title',
+      slug: 'Slug',
+      content: 'Content',
+      excerpt: 'Excerpt',
+      featuredImage: 'Featured Image',
+      tags: 'Tags',
+      categories: 'Categories',
+      publishDate: 'Publish Date',
+      views: 'Views',
+      uploadMedia: 'Upload Media',
+      mediaLibrary: 'Media Library',
+      translationKey: 'Translation Key',
+      lastModified: 'Last Modified',
+      modifiedBy: 'Modified By',
+      translations: 'Translations',
+      pages: 'Pages',
+      totalPageViews: 'Total Page Views',
+      publishedPages: 'Published Pages',
+      draftPages: 'Draft Pages',
+      
+      // Footer
+      footerDescription: 'Your trusted partner for Hajj, Umrah, and global tourism experiences. We provide exceptional service and unforgettable journeys that create lasting memories.',
       quickLinks: 'Quick Links',
-      frequentlyAskedQuestions: 'Frequently Asked Questions',
-      faqSubtitle: 'Find answers to common questions about our services',
-      messageSentSuccessfully: 'Message Sent Successfully!',
-      messageSentDesc: 'Thank you for contacting us. We have received your message and will get back to you within 24 hours.',
-        sendAnotherMessage: 'Send Another Message',
-        sending: 'Sending...',
-        sendMessageBtn: 'Send Message',
-
-        // Package Details Page
-        overview: 'Overview',
-        itinerary: 'Itinerary',
-        inclusions: 'Inclusions',
-        requirements: 'Requirements',
-        packageOverview: 'Package Overview',
-        keyFeatures: 'Key Features',
-        quickFacts: 'Quick Facts',
-        duration: 'Duration',
-        rating: 'Rating',
-        reviews: 'Reviews',
-        type: 'Type',
-        perPerson: 'per person',
-        bookThisPackage: 'Book This Package',
-        detailedItinerary: 'Detailed Itinerary',
-        day: 'Day',
-        activities: 'Activities',
-        whatsIncluded: 'What\'s Included',
-        whatsNotIncluded: 'What\'s Not Included',
-        travelRequirements: 'Travel Requirements',
-        importantNote: 'Important Note',
-        requirementsNote: 'Please ensure all requirements are met before booking. Our team will assist you with visa processing and documentation.',
-        youMightAlsoLike: 'You Might Also Like',
-        exploreOtherPackages: 'Explore other amazing packages',
-        askQuestion: 'Ask Question',
-        bookNow: 'Book Now',
-        save: 'Save',
-        perPersonDoubleOccupancy: 'Per person (double occupancy)',
-
-        // Booking Form Page
-        bookYourJourney: 'Book Your Journey',
-        completeFormToReserve: 'Complete the form below to reserve your travel package',
-        serviceSelection: 'Service Selection',
-        personalInformation: 'Personal Information',
-        travelDetails: 'Travel Details',
-        emergencyContact: 'Emergency Contact',
-        paymentConfirmation: 'Payment & Confirmation',
-        selectYourService: 'Select Your Service',
-        serviceType: 'Service Type',
-        selectServiceType: 'Select a service type',
-        package: 'Package',
-        selectPackage: 'Select a package',
-        firstName: 'First Name',
-        lastName: 'Last Name',
-        email: 'Email',
-        phoneNumber: 'Phone Number',
-        dateOfBirth: 'Date of Birth',
-        nationality: 'Nationality',
-        passportNumber: 'Passport Number',
-        passportExpiryDate: 'Passport Expiry Date',
-        departureCity: 'Departure City',
-        numberOfTravelers: 'Number of Travelers',
-        preferredDepartureDate: 'Preferred Departure Date',
-        returnDate: 'Return Date',
-        roomType: 'Room Type',
-        selectRoomType: 'Select room type',
-        specialRequests: 'Special Requests',
-        additionalServices: 'Additional Services',
-        emergencyContactName: 'Emergency Contact Name',
-        emergencyContactPhone: 'Emergency Contact Phone',
-        relationship: 'Relationship',
-        selectRelationship: 'Select relationship',
-        bookingSummary: 'Booking Summary',
-        travelers: 'Travelers',
-        basePrice: 'Base Price',
-        total: 'Total',
-        paymentMethod: 'Payment Method',
-        selectPaymentMethod: 'Select payment method',
-        agreeToTerms: 'I agree to the Terms and Conditions and Privacy Policy',
-        previous: 'Previous',
-        next: 'Next',
-        submitBooking: 'Submit Booking',
-        person: 'Person',
-        people: 'People',
-        spouse: 'Spouse',
-        parent: 'Parent',
-        sibling: 'Sibling',
-        child: 'Child',
-        friend: 'Friend',
-        other: 'Other',
-        singleRoom: 'Single Room',
-        doubleRoom: 'Double Room',
-        tripleRoom: 'Triple Room',
-        quadRoom: 'Quad Room',
-        extraBaggageAllowance: 'Extra Baggage Allowance',
-        seatSelection: 'Seat Selection',
-        mealUpgrade: 'Meal Upgrade',
-        inFlightWifi: 'In-flight WiFi',
-        creditCard: 'Credit Card',
-        debitCard: 'Debit Card',
-        bankTransfer: 'Bank Transfer',
-        installments: 'Installments',
-
-        // Admin Dashboard
-        adminDashboard: 'Admin Dashboard',
-        dashboardOverview: 'Dashboard Overview',
-        packageManagement: 'Package Management',
-        manageYourTravelPackages: 'Manage your travel packages and pricing',
-        bookingManagement: 'Booking Management',
-        manageCustomerBookings: 'Manage customer bookings and reservations',
-        userManagement: 'User Management',
-        manageCustomersAndStaff: 'Manage customers and staff members',
-        contentManagement: 'Content Management',
-        manageTranslationsPagesMedia: 'Manage translations, pages, and media content',
-        analyticsReports: 'Analytics & Reports',
-        trackBusinessPerformance: 'Track your business performance and insights',
-        settings: 'Settings',
-        configureWebsiteSettings: 'Configure your website settings and preferences',
-        totalBookings: 'Total Bookings',
-        totalRevenue: 'Total Revenue',
-        activePackages: 'Active Packages',
-        registeredUsers: 'Registered Users',
-        fromLastMonth: 'from last month',
-        revenueOverview: 'Revenue Overview',
-        recentBookings: 'Recent Bookings',
-        topPerformingPackages: 'Top Performing Packages',
-        customerInsights: 'Customer Insights',
-        newCustomers: 'New Customers',
-        returningCustomers: 'Returning Customers',
-        averageAge: 'Average Age',
-        topCountries: 'Top Countries',
-        quickActions: 'Quick Actions',
-        addNewPackage: 'Add New Package',
-        viewBookings: 'View Bookings',
-        generateReport: 'Generate Report',
-        hajjPackages: 'Hajj Packages',
-        umrahPackages: 'Umrah Packages',
-        globalTourism: 'Global Tourism',
-        customers: 'Customers',
-        staffMembers: 'Staff Members',
-        translations: 'Translations',
-        pages: 'Pages',
-        mediaLibrary: 'Media Library',
-        generalSettings: 'General Settings',
-        appearance: 'Appearance',
-        notifications: 'Notifications',
-        security: 'Security',
-        emailSettings: 'Email Settings',
-        backupRestore: 'Backup & Restore',
-        siteName: 'Site Name',
-        siteDescription: 'Site Description',
-        contactEmail: 'Contact Email',
-        contactPhone: 'Contact Phone',
-        address: 'Address',
-        currency: 'Currency',
-        timezone: 'Timezone',
-        dateFormat: 'Date Format',
-        defaultLanguage: 'Default Language',
-        theme: 'Theme',
-        lightMode: 'Light Mode',
-        darkMode: 'Dark Mode',
-        brandColors: 'Brand Colors',
-        primary: 'Primary',
-        secondary: 'Secondary',
-        accent: 'Accent',
-        background: 'Background',
-        emailNotifications: 'Email Notifications',
-        smsNotifications: 'SMS Notifications',
-        maintenanceMode: 'Maintenance Mode',
-        allowUserRegistration: 'Allow User Registration',
-        requireEmailVerification: 'Require Email Verification',
-        maximumFileSize: 'Maximum File Size (MB)',
-        allowedFileTypes: 'Allowed File Types',
-        smtpHost: 'SMTP Host',
-        smtpPort: 'SMTP Port',
-        smtpUsername: 'SMTP Username',
-        smtpPassword: 'SMTP Password',
-        fromEmailAddress: 'From Email Address',
-        fromName: 'From Name',
-        testEmailConfiguration: 'Test Email Configuration',
-        saveEmailSettings: 'Save Email Settings',
-        createBackup: 'Create Backup',
-        restoreBackup: 'Restore Backup',
-        backupHistory: 'Backup History',
-        createBackupNow: 'Create Backup Now',
-        download: 'Download',
-        delete: 'Delete',
-        edit: 'Edit',
-        view: 'View',
-        add: 'Add',
-        save: 'Save',
-        cancel: 'Cancel',
-        confirm: 'Confirm',
-        pending: 'Pending',
-        cancelled: 'Cancelled',
-        active: 'Active',
-        inactive: 'Inactive',
-        draft: 'Draft',
-        published: 'Published',
-        paid: 'Paid',
-        refunded: 'Refunded',
-        package: 'Package',
-        duration: 'Duration',
-        price: 'Price',
-        bookings: 'Bookings',
-        revenue: 'Revenue',
-        status: 'Status',
-        actions: 'Actions',
-        customer: 'Customer',
-        contact: 'Contact',
-        totalSpent: 'Total Spent',
-        lastLogin: 'Last Login',
-        role: 'Role',
-        department: 'Department',
-        permissions: 'Permissions',
-        translationKey: 'Translation Key',
-        english: 'English',
-        arabic: 'Arabic',
-        french: 'French',
-        lastModified: 'Last Modified',
-        modifiedBy: 'Modified By',
-        slug: 'Slug',
-        views: 'Views',
-        uploadMedia: 'Upload Media',
-        addContent: 'Add Content',
-        contentType: 'Content Type',
-        title: 'Title',
-        content: 'Content',
-        export: 'Export',
-        newBooking: 'New Booking',
-        allBookings: 'All Bookings',
-        confirmed: 'Confirmed',
-        cancelled: 'Cancelled',
-        bookingId: 'Booking ID',
-        customer: 'Customer',
-        amount: 'Amount',
-        payment: 'Payment',
-        travelDate: 'Travel Date',
-        selectedBookings: 'booking(s) selected',
-        confirmSelected: 'Confirm Selected',
-        sendEmail: 'Send Email',
-        cancelSelected: 'Cancel Selected',
-        travelers: 'traveler(s)',
-        email: 'Email',
-        totalCustomers: 'Total Customers',
-        activeCustomers: 'Active Customers',
-        staffMembers: 'Staff Members',
-        contact: 'Contact',
-        totalSpent: 'Total Spent',
-        lastLogin: 'Last Login',
-        staffMember: 'Staff Member',
-        department: 'Department',
-        permissions: 'Permissions',
-        addUser: 'Add User',
-        fullName: 'Full Name',
-        emailAddress: 'Email Address',
-        phoneNumber: 'Phone Number',
-        userType: 'User Type',
-        translations: 'Translations',
-        pages: 'Pages',
-        mediaLibrary: 'Media Library',
-        translationKey: 'Translation Key',
-        lastModified: 'Last Modified',
-        modifiedBy: 'Modified By',
-        publishedPages: 'Published Pages',
-        draftPages: 'Draft Pages',
-        totalPageViews: 'Total Page Views',
-        addContent: 'Add Content',
-        contentType: 'Content Type',
-        slug: 'Slug',
-        views: 'Views',
-        copy: 'Copy',
-        duplicate: 'Duplicate',
-        uploadMedia: 'Upload Media',
-        language: 'Language',
-        avgBookingValue: 'Avg Booking Value',
-        conversionRate: 'Conversion Rate',
-        revenueTrend: 'Revenue Trend',
-        bookingsByType: 'Bookings by Type',
-        topPerformingPackages: 'Top Performing Packages',
-        avgValue: 'Avg Value',
-        customerInsights: 'Customer Insights',
-        newCustomers: 'New Customers',
-        returningCustomers: 'Returning Customers',
-        averageAge: 'Average Age',
-        topCountries: 'Top Countries',
-        years: 'years',
-        fromLastPeriod: 'from last period',
-        generalSettings: 'General Settings',
-        appearance: 'Appearance',
-        notifications: 'Notifications',
-        security: 'Security',
-        emailSettings: 'Email Settings',
-        backupRestore: 'Backup & Restore',
-        siteName: 'Site Name',
-        siteDescription: 'Site Description',
-        contactEmail: 'Contact Email',
-        contactPhone: 'Contact Phone',
-        address: 'Address',
-        currency: 'Currency',
-        timezone: 'Timezone',
-        dateFormat: 'Date Format',
-        defaultLanguage: 'Default Language',
-        theme: 'Theme',
-        lightMode: 'Light Mode',
-        darkMode: 'Dark Mode',
-        brandColors: 'Brand Colors',
-        primary: 'Primary',
-        secondary: 'Secondary',
-        accent: 'Accent',
-        background: 'Background',
-        emailNotifications: 'Email Notifications',
-        smsNotifications: 'SMS Notifications',
-        maintenanceMode: 'Maintenance Mode',
-        allowUserRegistration: 'Allow User Registration',
-        requireEmailVerification: 'Require Email Verification',
-        maximumFileSize: 'Maximum File Size (MB)',
-        allowedFileTypes: 'Allowed File Types',
-        smtpHost: 'SMTP Host',
-        smtpPort: 'SMTP Port',
-        smtpUsername: 'SMTP Username',
-        smtpPassword: 'SMTP Password',
-        fromEmailAddress: 'From Email Address',
-        fromName: 'From Name',
-        testEmailConfiguration: 'Test Email Configuration',
-        saveEmailSettings: 'Save Email Settings',
-        createBackup: 'Create Backup',
-        restoreBackup: 'Restore Backup',
-        backupHistory: 'Backup History',
-        createBackupNow: 'Create Backup Now',
-        download: 'Download',
-        exportReport: 'Export Report',
-        // Authentication
-        signInToAccount: 'Sign in to your account',
-        dontHaveAccount: "Don't have an account?",
-        signUp: 'Sign up',
-        createAccount: 'Create your account',
-        alreadyHaveAccount: 'Already have an account?',
-        signIn: 'Sign in',
-        signingIn: 'Signing in...',
-        creatingAccount: 'Creating account...',
-        rememberMe: 'Remember me',
-        forgotPassword: 'Forgot your password?',
-        orContinueWith: 'Or continue with',
-        emailRequired: 'Email is required',
-        emailInvalid: 'Email is invalid',
-        passwordRequired: 'Password is required',
-        passwordMinLength: 'Password must be at least 6 characters',
-        passwordMinLength8: 'Password must be at least 8 characters',
-        passwordComplexity: 'Password must contain uppercase, lowercase, and number',
-        confirmPasswordRequired: 'Please confirm your password',
-        passwordsDoNotMatch: 'Passwords do not match',
-        mustAgreeToTerms: 'You must agree to the terms and conditions',
-        loginError: 'Login failed. Please try again.',
-        signupError: 'Signup failed. Please try again.',
-        invalidCredentials: 'Invalid email or password',
-        firstNameRequired: 'First name is required',
-        lastNameRequired: 'Last name is required',
-        phoneRequired: 'Phone number is required',
-        phoneInvalid: 'Phone number is invalid',
-        passwordRequirements: 'Must contain uppercase, lowercase, and number',
-        agreeTo: 'I agree to the',
-        termsAndConditions: 'Terms and Conditions',
-        and: 'and',
-        privacyPolicy: 'Privacy Policy',
-        subscribeToNewsletter: 'Subscribe to newsletter for updates',
-        // Profile
-        overview: 'Overview',
-        myBookings: 'My Bookings',
-        profileSettings: 'Profile Settings',
-        preferences: 'Preferences',
-        accountOverview: 'Account Overview',
-        memberSince: 'Member since',
-        totalBookings: 'Total Bookings',
-        totalSpent: 'Total Spent',
-        confirmedBookings: 'Confirmed Bookings',
-        recentBookings: 'Recent Bookings',
-        bookingId: 'Booking ID',
-        travelDate: 'Travel Date',
-        bookNewTrip: 'Book New Trip',
-        bookingDate: 'Booking Date',
-        savePreferences: 'Save Preferences',
-        receiveEmailUpdates: 'Receive email updates about your bookings',
-        receiveSMSUpdates: 'Receive SMS updates for important notifications',
-        receiveNewsletter: 'Receive our newsletter with travel tips and offers',
-        newsletter: 'Newsletter',
-        // Admin
-        adminLogin: 'Admin Login',
-        adminLoginSubtitle: 'Access the admin dashboard',
-        demoCredentials: 'Demo Credentials',
-        backToWebsite: 'Back to Website',
-        last7Days: 'Last 7 days',
-        last30Days: 'Last 30 days',
-        last90Days: 'Last 90 days',
-        lastYear: 'Last year',
-        packageTitle: 'Package Title',
-        packageType: 'Package Type',
-        originalPrice: 'Original Price',
-        description: 'Description',
-        addPackage: 'Add Package',
-        fullName: 'Full Name',
-        emailAddress: 'Email Address',
-        phoneNumber: 'Phone Number',
-        userType: 'User Type',
-        addUser: 'Add User',
-        profileSettings: 'Profile Settings',
-        accountSettings: 'Account Settings',
-        logout: 'Logout',
-        viewWebsite: 'View Website',
-        quickStats: 'Quick Stats',
-        totalPageViews: 'Total Page Views',
-        publishedPages: 'Published Pages',
-        draftPages: 'Draft Pages',
-        translationKeys: 'Translation Keys'
+      aboutUs: 'About Us',
+      privacyPolicy: 'Privacy Policy',
+      termsOfService: 'Terms of Service',
+      facebook: 'Facebook',
+      instagram: 'Instagram',
+      twitter: 'Twitter',
+      linkedin: 'LinkedIn',
+      youtube: 'YouTube',
+      copyright: '© 2024 Al-Hijrah Tourism. All rights reserved.',
+      
+      // Common
+      overview: 'Overview',
+      details: 'Details',
+      totalSpent: 'Total Spent',
+      staffMembers: 'Staff Members',
+      addUser: 'Add User'
     },
+    
     ar: {
       // Navigation
       home: 'الرئيسية',
@@ -667,7 +427,7 @@ export const AppProvider = ({ children }) => {
       
       // Homepage
       heroTitle: 'رحلتك تبدأ من هنا',
-      heroSubtitle: 'استمتع بافضل رحلات للبقاع المقدسة مع الهجرة للسياحة - شريكك الموثوق في جميع الرحلات .',
+      heroSubtitle: 'اختبر أكثر الحج المقدس والعمرة في العالم وأروع الوجهات مع الحجرة للسياحة - شريكك الموثوق في الرحلات الروحية والثقافية.',
       exploreHajjUmrah: 'استكشف الحج والعمرة',
       discoverGlobalTours: 'اكتشف الجولات العالمية',
       ourServices: 'خدماتنا',
@@ -675,18 +435,18 @@ export const AppProvider = ({ children }) => {
       hajjUmrahService: 'الحج والعمرة',
       hajjUmrahDesc: 'رحلات روحية كاملة مع إرشاد خبير وإقامة فاخرة',
       globalTourismService: 'السياحة العالمية',
-      globalTourismDesc: 'استكشف العالم مع حزم السفر المختارة بعناية وتجاربنا',
+      globalTourismDesc: 'استكشف العالم مع حزم السفر وال experiences التي نختارها بعناية',
       expertGuidance: 'إرشاد خبير',
-      expertGuidanceDesc: 'مستشارو سفر محترفون لضمان أن تكون رحلتك سلسة ولا تُنسى',
+      expertGuidanceDesc: 'مستشارو سفر محترفون لضمان أن تكون رحلتك سلسة ومليئة بالذكريات',
       bestPrices: 'أفضل الأسعار',
-      bestPricesDesc: 'أسعار تنافسية بدون رسوم خفية وخيارات دفع مرنة',
+      bestPricesDesc: 'أسعار تنافسية بدون رسوم مخفية وخيارات دفع مرنة',
       specialOffers: 'عروض خاصة',
       specialOffersSubtitle: 'لا تفوت هذه الصفقات المحدودة الوقت',
       whyChooseUs: 'لماذا تختار الحجرة للسياحة؟',
       expertGuidanceFeature: 'إرشاد خبير',
       expertGuidanceFeatureDesc: 'فريقنا ذو الخبرة يوفر إرشاداً شخصياً لكل خطوة في رحلتك',
       premiumAccommodations: 'إقامة فاخرة',
-      premiumAccommodationsDesc: 'اقضِ في فنادق وإقامات مختارة بعناية لأقصى راحة',
+      premiumAccommodationsDesc: 'اقض في فنادق وإقامة مختارة بعناية لأقصى راحة',
       support247: 'دعم على مدار الساعة',
       support247Desc: 'مساعدة على مدار الساعة لضمان أن تكون رحلتك سلسة وخالية من القلق',
       readyToStart: 'مستعد لبدء رحلتك؟',
@@ -694,592 +454,36 @@ export const AppProvider = ({ children }) => {
       bookYourTrip: 'احجز رحلتك',
       getInTouch: 'تواصل معنا',
       
-      // Hajj & Umrah Page
-      hajjUmrahTitle: 'برامج الحج والعمرة',
-      hajjUmrahSubtitle: 'انطلق في رحلتك الروحية مع حزم الحج والعمرة المصممة بعناية. استمتع بالحج المقدس مع الراحة والإرشاد وراحة البال.',
-      packageType: 'نوع الحزمة',
-      allTypes: 'جميع الأنواع',
-      hajj: 'الحج',
-      umrah: 'العمرة',
-      duration: 'المدة',
-      allDurations: 'جميع المدد',
-      shortDuration: '1-7 أيام',
-      mediumDuration: '8-10 أيام',
-      longDuration: '11+ أيام',
-      priceRange: 'نطاق السعر',
-      allPrices: 'جميع الأسعار',
-      budgetPrice: 'أقل من $2,000',
-      midPrice: '$2,000 - $3,500',
-      premiumPrice: 'أكثر من $3,500',
-      availablePackages: 'الحزم المتاحة',
-      choosePackages: 'اختر من حزم الحج والعمرة المختارة بعناية',
-      noPackagesFound: 'لم يتم العثور على حزم',
-      tryAdjustingFilters: 'حاول تعديل المرشحات لرؤية المزيد من الخيارات',
-      packageIncludes: 'تشمل الحزمة:',
-      moreFeatures: 'ميزات أخرى',
-      viewDetails: 'عرض التفاصيل',
-      importantInformation: 'معلومات مهمة',
-      hajjRequirements: 'متطلبات الحج',
-      umrahRequirements: 'متطلبات العمرة',
-      validPassport6Months: 'جواز سفر صالح لمدة 6 أشهر على الأقل',
-      hajjVisaSaudi: 'تأشيرة حج من المملكة العربية السعودية',
-      vaccinationCertificates: 'شهادات التطعيم (كوفيد-19، التهاب السحايا)',
-      physicalFitnessCertificate: 'شهادة اللياقة البدنية',
-      umrahVisaSaudi: 'تأشيرة عمرة من المملكة العربية السعودية',
-      covidVaccinationCertificate: 'شهادة تطعيم كوفيد-19',
-      travelInsurance: 'تأمين السفر',
-      experiencedGuidesSpiritual: 'مرشدون ذوو خبرة يفهمون الأهمية الروحية لرحلتك',
-      carefullySelectedHotels: 'فنادق مختارة بعناية قريبة من المساجد المقدسة',
-      roundTheClockAssistance: 'مساعدة على مدار الساعة طوال رحلتك',
-      whyChooseOurPackages: 'لماذا تختار حزمنا؟',
-      
-      // Footer
-      footerDescription: 'شريكك الموثوق في تجارب الحج والعمرة والسياحة العالمية. نقدم خدمة استثنائية ورحلات لا تُنسى تخلق ذكريات دائمة.',
-      quickLinks: 'روابط سريعة',
-      contactInfo: 'معلومات الاتصال',
-      facebook: 'فيسبوك',
-      instagram: 'إنستغرام',
-      twitter: 'تويتر',
-      phoneNumber: '+1 (555) 123-4567',
-      emailAddress: 'info@alhijrahtourism.com',
-      address: 'شارع السياحة 123',
-      addressLine2: 'مدينة السفر، تي سي 12345',
-      copyright: '© 2024 ZoukhDev. جميع الحقوق محفوظة.',
-      privacyPolicy: 'سياسة الخصوصية',
-      termsOfService: 'شروط الخدمة',
-      
-      // Package Content
-      premiumHajjPackage: 'حزمة الحج المميزة 2024',
-      standardHajjPackage: 'حزمة الحج العادية 2024',
-      luxuryUmrahPackage: 'حزمة العمرة الفاخرة',
-      standardUmrahPackage: 'حزمة العمرة العادية',
-      budgetUmrahPackage: 'حزمة العمرة الاقتصادية',
-      familyHajjPackage: 'حزمة الحج العائلية',
-      
-      // Package Descriptions
-      premiumHajjDesc: 'تجربة حج كاملة مع إقامة فاخرة 5 نجوم في مكة والمدينة',
-      standardHajjDesc: 'رحلة حج مريحة مع إقامة عالية الجودة والخدمات الأساسية',
-      luxuryUmrahDesc: 'تجربة عمرة مميزة مع إقامة فاخرة وخدمة شخصية',
-      standardUmrahDesc: 'رحلة عمرة مريحة مع إقامة عالية الجودة والخدمات الأساسية',
-      budgetUmrahDesc: 'حزمة عمرة بأسعار معقولة مع إقامة أساسية والخدمات الأساسية',
-      familyHajjDesc: 'حزمة حج صديقة للعائلة مع إقامة واسعة وخدمات مناسبة للأطفال',
-      
-      // Package Features
-      roundTripFlights: 'رحلات ذهاب وعودة',
-      fiveStarMakkah: 'فندق 5 نجوم في مكة (5 ليالي)',
-      fourStarMakkah: 'فندق 4 نجوم في مكة (5 ليالي)',
-      threeStarMakkah: 'فندق 3 نجوم في مكة (5 ليالي)',
-      fiveStarMadinah: 'فندق 5 نجوم في المدينة (5 ليالي)',
-      fourStarMadinah: 'فندق 4 نجوم في المدينة (5 ليالي)',
-      threeStarMadinah: 'فندق 3 نجوم في المدينة (5 ليالي)',
-      allMealsIncluded: 'جميع الوجبات مشمولة',
-      breakfastIncluded: 'الإفطار مشمول',
-      expertGuide: 'مرشد خبير طوال الرحلة',
-      expertGuideBasic: 'مرشد خبير',
-      transportationIncluded: 'النقل مشمول',
-      visaAssistance: 'مساعدة في التأشيرة',
-      groupSize: 'مجموعة صغيرة (حد أقصى 20)',
-      familyServices: 'خدمات صديقة للعائلة',
-      childCare: 'خدمات رعاية الأطفال',
-      
-      // Additional Package Content
-      familyUmrahPackage: 'حزمة العمرة العائلية',
-      quickUmrahPackage: 'حزمة العمرة السريعة',
-      economyHajjPackage: 'حزمة الحج الاقتصادية 2024',
-      
-      // Additional Package Descriptions
-      familyUmrahDesc: 'مثالية للعائلات مع الأطفال، تشمل إقامة صديقة للعائلة',
-      quickUmrahDesc: 'رحلة عمرة قصيرة وحلوة لمن لديهم وقت محدود',
-      economyHajjDesc: 'حزمة حج بأسعار معقولة مع خدمات أساسية وإقامة مريحة',
-      
-      // Additional Package Features
-      privateGuide: 'مرشد خاص',
-      vipTransportation: 'نقل VIP',
-      familyFriendlyMakkah: 'فندق صديق للعائلة في مكة (3 ليالي)',
-      familyFriendlyMadinah: 'فندق صديق للعائلة في المدينة (3 ليالي)',
-      familyGuide: 'مرشد عائلي',
-      groupGuide: 'مرشد جماعي',
-      
-      // Global Tourism Page
-      globalTourismTitle: 'حزم السياحة العالمية',
-      globalTourismSubtitle: 'اكتشف أجمل الوجهات في العالم مع حزم السفر المختارة بعناية. من التراث الثقافي إلى رياضات المغامرة، لدينا شيء لكل مسافر.',
-      destination: 'الوجهة',
-      allDestinations: 'جميع الوجهات',
-      europe: 'أوروبا',
-      asia: 'آسيا',
-      africa: 'أفريقيا',
-      americas: 'الأمريكتان',
-      middleEast: 'الشرق الأوسط',
-      oceania: 'أوقيانوسيا',
-      interest: 'الاهتمام',
-      allInterests: 'جميع الاهتمامات',
-      cultural: 'ثقافي',
-      adventure: 'مغامرة',
-      wildlife: 'الحياة البرية',
-      nature: 'طبيعة',
-      relaxation: 'استرخاء',
-      chooseGlobalPackages: 'اختر من مجموعتنا المتنوعة من تجارب السفر العالمية',
-      popularDestinations: 'الوجهات الشائعة',
-      popularDestinationsSubtitle: 'اكتشف الوجهات السياحية الأكثر طلباً في العالم',
-      packagesAvailable: 'حزم متاحة',
-      whyChooseGlobalTours: 'لماذا تختار جولاتنا العالمية؟',
-      whyChooseGlobalToursSubtitle: 'استمتع بالعالم بثقة وراحة',
-      expertLocalGuides: 'مرشدون محليون خبراء',
-      expertLocalGuidesDesc: 'مرشدونا المحليون ذوو المعرفة يضمنون لك تجربة الثقافة الأصيلة والجواهر المخفية لكل وجهة.',
-      curatedExperiences: 'تجارب مختارة',
-      curatedExperiencesDesc: 'كل برنامج رحلة مصمم بعناية لتوفير تجارب فريدة تتجاوز المعالم السياحية النموذجية.',
-      support247Global: 'دعم على مدار الساعة',
-      support247GlobalDesc: 'مساعدة على مدار الساعة طوال رحلتك لضمان تجربة سفر سلسة وخالية من القلق.',
-      
-      // Contact Page
-      contactTitle: 'اتصل بنا',
-      contactSubtitle: 'نحن هنا لمساعدتك في تخطيط رحلتك المثالية. تواصل مع خبراء السفر لدينا للحصول على مساعدة شخصية مع احتياجاتك في الحج والعمرة أو السياحة العالمية.',
-      phone: 'الهاتف',
-      email: 'البريد الإلكتروني',
-      address: 'العنوان',
-      businessHours: 'ساعات العمل',
-      sendMessage: 'أرسل لنا رسالة',
-      fullName: 'الاسم الكامل',
+      // Additional Arabic translations (no duplicates)
+      visaAssistance: 'مساعدة التأشيرة',
+      cancel: 'إلغاء',
+      customer: 'العميل',
       emailAddress: 'عنوان البريد الإلكتروني',
       phoneNumber: 'رقم الهاتف',
-      inquiryType: 'نوع الاستفسار',
-      hajjInquiry: 'استفسار الحج',
-      umrahInquiry: 'استفسار العمرة',
-      globalTourismInquiry: 'السياحة العالمية',
-      bookingSupport: 'دعم الحجز',
-      generalInquiry: 'استفسار عام',
-      complaint: 'شكوى',
-      other: 'أخرى',
-      subject: 'الموضوع',
-      message: 'الرسالة',
-      preferredContactMethod: 'طريقة التواصل المفضلة',
-      visitOurOffice: 'زر مكتبنا',
-      officeHours: 'ساعات المكتب',
-      mondayFriday: 'الاثنين - الجمعة',
-      saturday: 'السبت',
-      sunday: 'الأحد',
-      closed: 'مغلق',
-      quickLinks: 'روابط سريعة',
-      frequentlyAskedQuestions: 'الأسئلة الشائعة',
-      faqSubtitle: 'ابحث عن إجابات للأسئلة الشائعة حول خدماتنا',
-      messageSentSuccessfully: 'تم إرسال الرسالة بنجاح!',
-      messageSentDesc: 'شكراً لتواصلك معنا. لقد تلقينا رسالتك وسنرد عليك خلال 24 ساعة.',
-        sendAnotherMessage: 'أرسل رسالة أخرى',
-        sending: 'جاري الإرسال...',
-        sendMessageBtn: 'إرسال الرسالة',
-
-        // Package Details Page
-        overview: 'نظرة عامة',
-        itinerary: 'البرنامج',
-        inclusions: 'المشمولات',
-        requirements: 'المتطلبات',
-        packageOverview: 'نظرة عامة على الحزمة',
-        keyFeatures: 'الميزات الرئيسية',
-        quickFacts: 'حقائق سريعة',
-        duration: 'المدة',
-        rating: 'التقييم',
-        reviews: 'المراجعات',
-        type: 'النوع',
-        perPerson: 'للشخص الواحد',
-        bookThisPackage: 'احجز هذه الحزمة',
-        detailedItinerary: 'البرنامج التفصيلي',
-        day: 'اليوم',
-        activities: 'الأنشطة',
-        whatsIncluded: 'ما هو مشمول',
-        whatsNotIncluded: 'ما هو غير مشمول',
-        travelRequirements: 'متطلبات السفر',
-        importantNote: 'ملاحظة مهمة',
-        requirementsNote: 'يرجى التأكد من استيفاء جميع المتطلبات قبل الحجز. سيساعدك فريقنا في معالجة التأشيرة والوثائق.',
-        youMightAlsoLike: 'قد يعجبك أيضاً',
-        exploreOtherPackages: 'استكشف حزم أخرى مذهلة',
-        askQuestion: 'اطرح سؤالاً',
-        bookNow: 'احجز الآن',
-        save: 'وفر',
-        perPersonDoubleOccupancy: 'للشخص الواحد (إقامة مزدوجة)',
-
-        // Booking Form Page
-        bookYourJourney: 'احجز رحلتك',
-        completeFormToReserve: 'أكمل النموذج أدناه لحجز حزمة السفر الخاصة بك',
-        serviceSelection: 'اختيار الخدمة',
-        personalInformation: 'المعلومات الشخصية',
-        travelDetails: 'تفاصيل السفر',
-        emergencyContact: 'جهة الاتصال في حالات الطوارئ',
-        paymentConfirmation: 'الدفع والتأكيد',
-        selectYourService: 'اختر خدمتك',
-        serviceType: 'نوع الخدمة',
-        selectServiceType: 'اختر نوع الخدمة',
-        package: 'الحزمة',
-        selectPackage: 'اختر حزمة',
-        firstName: 'الاسم الأول',
-        lastName: 'اسم العائلة',
-        email: 'البريد الإلكتروني',
-        phoneNumber: 'رقم الهاتف',
-        dateOfBirth: 'تاريخ الميلاد',
-        nationality: 'الجنسية',
-        passportNumber: 'رقم جواز السفر',
-        passportExpiryDate: 'تاريخ انتهاء جواز السفر',
-        departureCity: 'مدينة المغادرة',
-        numberOfTravelers: 'عدد المسافرين',
-        preferredDepartureDate: 'تاريخ المغادرة المفضل',
-        returnDate: 'تاريخ العودة',
-        roomType: 'نوع الغرفة',
-        selectRoomType: 'اختر نوع الغرفة',
-        specialRequests: 'طلبات خاصة',
-        additionalServices: 'خدمات إضافية',
-        emergencyContactName: 'اسم جهة الاتصال في حالات الطوارئ',
-        emergencyContactPhone: 'هاتف جهة الاتصال في حالات الطوارئ',
-        relationship: 'العلاقة',
-        selectRelationship: 'اختر العلاقة',
-        bookingSummary: 'ملخص الحجز',
-        travelers: 'المسافرون',
-        basePrice: 'السعر الأساسي',
-        total: 'المجموع',
-        paymentMethod: 'طريقة الدفع',
-        selectPaymentMethod: 'اختر طريقة الدفع',
-        agreeToTerms: 'أوافق على الشروط والأحكام وسياسة الخصوصية',
-        previous: 'السابق',
-        next: 'التالي',
-        submitBooking: 'إرسال الحجز',
-        person: 'شخص',
-        people: 'أشخاص',
-        spouse: 'زوج/زوجة',
-        parent: 'والد/والدة',
-        sibling: 'أخ/أخت',
-        child: 'ابن/ابنة',
-        friend: 'صديق/صديقة',
-        other: 'أخرى',
-        singleRoom: 'غرفة مفردة',
-        doubleRoom: 'غرفة مزدوجة',
-        tripleRoom: 'غرفة ثلاثية',
-        quadRoom: 'غرفة رباعية',
-        extraBaggageAllowance: 'بدل أمتعة إضافي',
-        seatSelection: 'اختيار المقعد',
-        mealUpgrade: 'ترقية الوجبة',
-        inFlightWifi: 'واي فاي على متن الطائرة',
-        creditCard: 'بطاقة ائتمان',
-        debitCard: 'بطاقة خصم',
-        bankTransfer: 'تحويل بنكي',
-        installments: 'أقساط',
-
-        // Admin Dashboard
-        adminDashboard: 'لوحة الإدارة',
-        dashboardOverview: 'نظرة عامة على لوحة التحكم',
-        packageManagement: 'إدارة الحزم',
-        manageYourTravelPackages: 'إدارة حزم السفر والأسعار',
-        bookingManagement: 'إدارة الحجوزات',
-        manageCustomerBookings: 'إدارة حجوزات العملاء والاستفسارات',
-        userManagement: 'إدارة المستخدمين',
-        manageCustomersAndStaff: 'إدارة العملاء وأعضاء الفريق',
-        contentManagement: 'إدارة المحتوى',
-        manageTranslationsPagesMedia: 'إدارة الترجمات والصفحات والمحتوى الإعلامي',
-        analyticsReports: 'التحليلات والتقارير',
-        trackBusinessPerformance: 'تتبع أداء عملك ورؤى',
-        settings: 'الإعدادات',
-        configureWebsiteSettings: 'قم بتكوين إعدادات موقعك وتفضيلاتك',
-        totalBookings: 'إجمالي الحجوزات',
-        totalRevenue: 'إجمالي الإيرادات',
-        activePackages: 'الحزم النشطة',
-        registeredUsers: 'المستخدمون المسجلون',
-        fromLastMonth: 'من الشهر الماضي',
-        revenueOverview: 'نظرة عامة على الإيرادات',
-        recentBookings: 'الحجوزات الأخيرة',
-        topPerformingPackages: 'أفضل الحزم أداءً',
-        customerInsights: 'رؤى العملاء',
-        newCustomers: 'عملاء جدد',
-        returningCustomers: 'عملاء عائدون',
-        averageAge: 'متوسط العمر',
-        topCountries: 'أفضل البلدان',
-        quickActions: 'إجراءات سريعة',
-        addNewPackage: 'إضافة حزمة جديدة',
-        viewBookings: 'عرض الحجوزات',
-        generateReport: 'إنشاء تقرير',
-        hajjPackages: 'حزم الحج',
-        umrahPackages: 'حزم العمرة',
-        globalTourism: 'السياحة العالمية',
-        customers: 'العملاء',
-        staffMembers: 'أعضاء الفريق',
-        translations: 'الترجمات',
-        pages: 'الصفحات',
-        mediaLibrary: 'مكتبة الوسائط',
-        generalSettings: 'الإعدادات العامة',
-        appearance: 'المظهر',
-        notifications: 'الإشعارات',
-        security: 'الأمان',
-        emailSettings: 'إعدادات البريد الإلكتروني',
-        backupRestore: 'النسخ الاحتياطي والاستعادة',
-        siteName: 'اسم الموقع',
-        siteDescription: 'وصف الموقع',
-        contactEmail: 'البريد الإلكتروني للاتصال',
-        contactPhone: 'هاتف الاتصال',
-        address: 'العنوان',
-        currency: 'العملة',
-        timezone: 'المنطقة الزمنية',
-        dateFormat: 'تنسيق التاريخ',
-        defaultLanguage: 'اللغة الافتراضية',
-        theme: 'المظهر',
-        lightMode: 'الوضع المضيء',
-        darkMode: 'الوضع المظلم',
-        brandColors: 'ألوان العلامة التجارية',
-        primary: 'أساسي',
-        secondary: 'ثانوي',
-        accent: 'مميز',
-        background: 'الخلفية',
-        emailNotifications: 'إشعارات البريد الإلكتروني',
-        smsNotifications: 'إشعارات الرسائل النصية',
-        maintenanceMode: 'وضع الصيانة',
-        allowUserRegistration: 'السماح بتسجيل المستخدمين',
-        requireEmailVerification: 'تطلب التحقق من البريد الإلكتروني',
-        maximumFileSize: 'الحد الأقصى لحجم الملف (ميجابايت)',
-        allowedFileTypes: 'أنواع الملفات المسموحة',
-        smtpHost: 'مضيف SMTP',
-        smtpPort: 'منفذ SMTP',
-        smtpUsername: 'اسم مستخدم SMTP',
-        smtpPassword: 'كلمة مرور SMTP',
-        fromEmailAddress: 'عنوان البريد الإلكتروني المرسل',
-        fromName: 'اسم المرسل',
-        testEmailConfiguration: 'اختبار إعدادات البريد الإلكتروني',
-        saveEmailSettings: 'حفظ إعدادات البريد الإلكتروني',
-        createBackup: 'إنشاء نسخة احتياطية',
-        restoreBackup: 'استعادة نسخة احتياطية',
-        backupHistory: 'تاريخ النسخ الاحتياطية',
-        createBackupNow: 'إنشاء نسخة احتياطية الآن',
-        download: 'تحميل',
-        delete: 'حذف',
-        edit: 'تعديل',
-        view: 'عرض',
-        add: 'إضافة',
-        save: 'حفظ',
-        cancel: 'إلغاء',
-        confirm: 'تأكيد',
-        pending: 'في الانتظار',
-        cancelled: 'ملغي',
-        active: 'نشط',
-        inactive: 'غير نشط',
-        draft: 'مسودة',
-        published: 'منشور',
-        paid: 'مدفوع',
-        refunded: 'مسترد',
-        package: 'حزمة',
-        duration: 'المدة',
-        price: 'السعر',
-        bookings: 'الحجوزات',
-        revenue: 'الإيرادات',
-        status: 'الحالة',
-        actions: 'الإجراءات',
-        customer: 'العميل',
-        contact: 'الاتصال',
-        totalSpent: 'إجمالي المصروف',
-        lastLogin: 'آخر تسجيل دخول',
-        role: 'الدور',
-        department: 'القسم',
-        permissions: 'الأذونات',
-        translationKey: 'مفتاح الترجمة',
-        english: 'الإنجليزية',
-        arabic: 'العربية',
-        french: 'الفرنسية',
-        lastModified: 'آخر تعديل',
-        modifiedBy: 'تم التعديل بواسطة',
-        slug: 'الرابط',
-        views: 'المشاهدات',
-        uploadMedia: 'رفع وسائط',
-        addContent: 'إضافة محتوى',
-        contentType: 'نوع المحتوى',
-        title: 'العنوان',
-        content: 'المحتوى',
-        export: 'تصدير',
-        newBooking: 'حجز جديد',
-        allBookings: 'جميع الحجوزات',
-        confirmed: 'مؤكد',
-        cancelled: 'ملغي',
-        bookingId: 'رقم الحجز',
-        customer: 'العميل',
-        amount: 'المبلغ',
-        payment: 'الدفع',
-        travelDate: 'تاريخ السفر',
-        selectedBookings: 'حجز محدد',
-        confirmSelected: 'تأكيد المحدد',
-        sendEmail: 'إرسال بريد إلكتروني',
-        cancelSelected: 'إلغاء المحدد',
-        travelers: 'مسافر',
-        email: 'بريد إلكتروني',
-        totalCustomers: 'إجمالي العملاء',
-        activeCustomers: 'العملاء النشطون',
-        staffMembers: 'أعضاء الفريق',
-        contact: 'جهة الاتصال',
-        totalSpent: 'إجمالي المبلغ المنفق',
-        lastLogin: 'آخر تسجيل دخول',
-        staffMember: 'عضو الفريق',
-        department: 'القسم',
-        permissions: 'الأذونات',
-        addUser: 'إضافة مستخدم',
-        fullName: 'الاسم الكامل',
-        emailAddress: 'عنوان البريد الإلكتروني',
-        phoneNumber: 'رقم الهاتف',
-        userType: 'نوع المستخدم',
-        translations: 'الترجمات',
-        pages: 'الصفحات',
-        mediaLibrary: 'مكتبة الوسائط',
-        translationKey: 'مفتاح الترجمة',
-        lastModified: 'آخر تعديل',
-        modifiedBy: 'تم التعديل بواسطة',
-        publishedPages: 'الصفحات المنشورة',
-        draftPages: 'الصفحات المسودة',
-        totalPageViews: 'إجمالي مشاهدات الصفحة',
-        addContent: 'إضافة محتوى',
-        contentType: 'نوع المحتوى',
-        slug: 'الرابط',
-        views: 'المشاهدات',
-        copy: 'نسخ',
-        duplicate: 'تكرار',
-        uploadMedia: 'رفع وسائط',
-        language: 'اللغة',
-        avgBookingValue: 'متوسط قيمة الحجز',
-        conversionRate: 'معدل التحويل',
-        revenueTrend: 'اتجاه الإيرادات',
-        bookingsByType: 'الحجوزات حسب النوع',
-        topPerformingPackages: 'أفضل الحزم أداءً',
-        avgValue: 'متوسط القيمة',
-        customerInsights: 'رؤى العملاء',
-        newCustomers: 'عملاء جدد',
-        returningCustomers: 'عملاء عائدون',
-        averageAge: 'متوسط العمر',
-        topCountries: 'أفضل البلدان',
-        years: 'سنوات',
-        fromLastPeriod: 'من الفترة الماضية',
-        generalSettings: 'الإعدادات العامة',
-        appearance: 'المظهر',
-        notifications: 'الإشعارات',
-        security: 'الأمان',
-        emailSettings: 'إعدادات البريد الإلكتروني',
-        backupRestore: 'النسخ الاحتياطي والاستعادة',
-        siteName: 'اسم الموقع',
-        siteDescription: 'وصف الموقع',
-        contactEmail: 'بريد الاتصال',
-        contactPhone: 'هاتف الاتصال',
-        address: 'العنوان',
-        currency: 'العملة',
-        timezone: 'المنطقة الزمنية',
-        dateFormat: 'تنسيق التاريخ',
-        defaultLanguage: 'اللغة الافتراضية',
-        theme: 'المظهر',
-        lightMode: 'الوضع الفاتح',
-        darkMode: 'الوضع الداكن',
-        brandColors: 'ألوان العلامة التجارية',
-        primary: 'أساسي',
-        secondary: 'ثانوي',
-        accent: 'مميز',
-        background: 'الخلفية',
-        emailNotifications: 'إشعارات البريد الإلكتروني',
-        smsNotifications: 'إشعارات الرسائل النصية',
-        maintenanceMode: 'وضع الصيانة',
-        allowUserRegistration: 'السماح بتسجيل المستخدمين',
-        requireEmailVerification: 'تطلب التحقق من البريد الإلكتروني',
-        maximumFileSize: 'الحد الأقصى لحجم الملف (ميجابايت)',
-        allowedFileTypes: 'أنواع الملفات المسموحة',
-        smtpHost: 'مضيف SMTP',
-        smtpPort: 'منفذ SMTP',
-        smtpUsername: 'اسم مستخدم SMTP',
-        smtpPassword: 'كلمة مرور SMTP',
-        fromEmailAddress: 'عنوان البريد الإلكتروني المرسل',
-        fromName: 'اسم المرسل',
-        testEmailConfiguration: 'اختبار تكوين البريد الإلكتروني',
-        saveEmailSettings: 'حفظ إعدادات البريد الإلكتروني',
-        createBackup: 'إنشاء نسخة احتياطية',
-        restoreBackup: 'استعادة النسخة الاحتياطية',
-        backupHistory: 'تاريخ النسخ الاحتياطية',
-        createBackupNow: 'إنشاء نسخة احتياطية الآن',
-        download: 'تحميل',
-        exportReport: 'تصدير تقرير',
-        // Authentication
-        signInToAccount: 'تسجيل الدخول إلى حسابك',
-        dontHaveAccount: 'ليس لديك حساب؟',
-        signUp: 'إنشاء حساب',
-        createAccount: 'إنشاء حسابك',
-        alreadyHaveAccount: 'لديك حساب بالفعل؟',
-        signIn: 'تسجيل الدخول',
-        signingIn: 'جاري تسجيل الدخول...',
-        creatingAccount: 'جاري إنشاء الحساب...',
-        rememberMe: 'تذكرني',
-        forgotPassword: 'نسيت كلمة المرور؟',
-        orContinueWith: 'أو متابعة مع',
-        emailRequired: 'البريد الإلكتروني مطلوب',
-        emailInvalid: 'البريد الإلكتروني غير صحيح',
-        passwordRequired: 'كلمة المرور مطلوبة',
-        passwordMinLength: 'كلمة المرور يجب أن تكون 6 أحرف على الأقل',
-        passwordMinLength8: 'كلمة المرور يجب أن تكون 8 أحرف على الأقل',
-        passwordComplexity: 'كلمة المرور يجب أن تحتوي على حروف كبيرة وصغيرة وأرقام',
-        confirmPasswordRequired: 'يرجى تأكيد كلمة المرور',
-        passwordsDoNotMatch: 'كلمات المرور غير متطابقة',
-        mustAgreeToTerms: 'يجب الموافقة على الشروط والأحكام',
-        loginError: 'فشل تسجيل الدخول. يرجى المحاولة مرة أخرى.',
-        signupError: 'فشل إنشاء الحساب. يرجى المحاولة مرة أخرى.',
-        invalidCredentials: 'البريد الإلكتروني أو كلمة المرور غير صحيحة',
-        firstNameRequired: 'الاسم الأول مطلوب',
-        lastNameRequired: 'الاسم الأخير مطلوب',
-        phoneRequired: 'رقم الهاتف مطلوب',
-        phoneInvalid: 'رقم الهاتف غير صحيح',
-        passwordRequirements: 'يجب أن تحتوي على حروف كبيرة وصغيرة وأرقام',
-        agreeTo: 'أوافق على',
-        termsAndConditions: 'الشروط والأحكام',
-        and: 'و',
-        privacyPolicy: 'سياسة الخصوصية',
-        subscribeToNewsletter: 'الاشتراك في النشرة الإخبارية للحصول على التحديثات',
-        // Profile
-        overview: 'نظرة عامة',
-        myBookings: 'حجوزاتي',
-        profileSettings: 'إعدادات الملف الشخصي',
-        preferences: 'التفضيلات',
-        accountOverview: 'نظرة عامة على الحساب',
-        memberSince: 'عضو منذ',
-        totalBookings: 'إجمالي الحجوزات',
-        totalSpent: 'إجمالي المبلغ المنفق',
-        confirmedBookings: 'الحجوزات المؤكدة',
-        recentBookings: 'الحجوزات الأخيرة',
-        bookingId: 'رقم الحجز',
-        travelDate: 'تاريخ السفر',
-        bookNewTrip: 'حجز رحلة جديدة',
-        bookingDate: 'تاريخ الحجز',
-        savePreferences: 'حفظ التفضيلات',
-        receiveEmailUpdates: 'تلقي تحديثات البريد الإلكتروني حول حجوزاتك',
-        receiveSMSUpdates: 'تلقي تحديثات الرسائل النصية للإشعارات المهمة',
-        receiveNewsletter: 'تلقي نشرتنا الإخبارية مع نصائح السفر والعروض',
-        newsletter: 'النشرة الإخبارية',
-        // Admin
-        adminLogin: 'تسجيل دخول الإدارة',
-        adminLoginSubtitle: 'الوصول إلى لوحة الإدارة',
-        demoCredentials: 'بيانات الاعتماد التجريبية',
-        backToWebsite: 'العودة إلى الموقع',
-        last7Days: 'آخر 7 أيام',
-        last30Days: 'آخر 30 يوم',
-        last90Days: 'آخر 90 يوم',
-        lastYear: 'العام الماضي',
-        packageTitle: 'عنوان الحزمة',
-        packageType: 'نوع الحزمة',
-        originalPrice: 'السعر الأصلي',
-        description: 'الوصف',
-        addPackage: 'إضافة حزمة',
-        fullName: 'الاسم الكامل',
-        emailAddress: 'عنوان البريد الإلكتروني',
-        phoneNumber: 'رقم الهاتف',
-        userType: 'نوع المستخدم',
-        addUser: 'إضافة مستخدم',
-        profileSettings: 'إعدادات الملف الشخصي',
-        accountSettings: 'إعدادات الحساب',
-        logout: 'تسجيل الخروج',
-        viewWebsite: 'عرض الموقع',
-        quickStats: 'إحصائيات سريعة',
-        totalPageViews: 'إجمالي مشاهدات الصفحات',
-        publishedPages: 'الصفحات المنشورة',
-        draftPages: 'صفحات المسودة',
-        translationKeys: 'مفاتيح الترجمة'
+      email: 'البريد الإلكتروني',
+      totalSpent: 'إجمالي المصروف',
+      fullName: 'الاسم الكامل',
+      address: 'العنوان',
+      overview: 'نظرة عامة',
+      totalBookings: 'إجمالي الحجوزات',
+      recentBookings: 'الحجوزات الأخيرة',
+      bookingId: 'رقم الحجز',
+      travelDate: 'تاريخ السفر',
+      packageType: 'نوع الباقة',
+      userType: 'نوع المستخدم',
+      addUser: 'إضافة مستخدم',
+      totalPageViews: 'إجمالي مشاهدات الصفحة',
+      publishedPages: 'الصفحات المنشورة',
+      draftPages: 'الصفحات المسودة'
     },
+    
     fr: {
       // Navigation
       home: 'Accueil',
-      hajjUmrah: 'Hajj & Omra',
+      hajjUmrah: 'Hajj et Omra',
       globalTourism: 'Tourisme Mondial',
       contact: 'Contact',
-      bookNow: 'Réserver',
+      bookNow: 'Réserver Maintenant',
       account: 'Compte',
       darkMode: 'Mode Sombre',
       lightMode: 'Mode Clair',
@@ -1287,658 +491,106 @@ export const AppProvider = ({ children }) => {
       
       // Homepage
       heroTitle: 'Votre Voyage Commence Ici',
-      heroSubtitle: 'Découvrez les pèlerinages les plus sacrés et les destinations à couper le souffle avec Al-Hijrah Tourism - votre partenaire de confiance pour les voyages spirituels et culturels.',
-      exploreHajjUmrah: 'Explorer Hajj & Omra',
+      heroSubtitle: 'Découvrez les pèlerinages les plus sacrés du monde et des destinations à couper le souffle avec Al-Hijrah Tourism - votre partenaire de confiance pour les voyages spirituels et culturels.',
+      exploreHajjUmrah: 'Explorer Hajj et Omra',
       discoverGlobalTours: 'Découvrir les Tours Mondiaux',
       ourServices: 'Nos Services',
       servicesSubtitle: 'Nous fournissons des solutions de voyage complètes adaptées à vos besoins spirituels et culturels',
-      hajjUmrahService: 'Hajj & Omra',
-      hajjUmrahDesc: 'Voyages spirituels complets avec guidance experte et hébergements premium',
+      hajjUmrahService: 'Hajj et Omra',
+      hajjUmrahDesc: 'Voyages spirituels complets avec guidage expert et hébergement premium',
       globalTourismService: 'Tourisme Mondial',
-      globalTourismDesc: 'Explorez le monde avec nos forfaits de voyage soigneusement sélectionnés et nos expériences',
-      expertGuidance: 'Guidance Experte',
+      globalTourismDesc: 'Explorez le monde avec nos forfaits de voyage et expériences soigneusement sélectionnés',
+      expertGuidance: 'Guidage Expert',
       expertGuidanceDesc: 'Conseillers en voyage professionnels pour assurer que votre voyage soit fluide et mémorable',
       bestPrices: 'Meilleurs Prix',
       bestPricesDesc: 'Prix compétitifs sans frais cachés et options de paiement flexibles',
       specialOffers: 'Offres Spéciales',
-      specialOffersSubtitle: 'Ne manquez pas ces offres limitées dans le temps',
+      specialOffersSubtitle: 'Ne manquez pas ces offres à durée limitée',
       whyChooseUs: 'Pourquoi Choisir Al-Hijrah Tourism?',
-      expertGuidanceFeature: 'Guidance Experte',
-      expertGuidanceFeatureDesc: 'Notre équipe expérimentée fournit une guidance personnalisée pour chaque étape de votre voyage',
-      premiumAccommodations: 'Hébergements Premium',
+      expertGuidanceFeature: 'Guidage Expert',
+      expertGuidanceFeatureDesc: 'Notre équipe expérimentée fournit un guidage personnalisé pour chaque étape de votre voyage',
+      premiumAccommodations: 'Hébergement Premium',
       premiumAccommodationsDesc: 'Séjournez dans des hôtels et hébergements soigneusement sélectionnés pour un confort maximum',
       support247: 'Support 24/7',
       support247Desc: 'Assistance 24h/24 pour assurer que votre voyage soit fluide et sans souci',
       readyToStart: 'Prêt à Commencer Votre Voyage?',
       readyToStartSubtitle: 'Contactez-nous aujourd\'hui pour planifier votre voyage spirituel ou culturel parfait',
       bookYourTrip: 'Réserver Votre Voyage',
-      getInTouch: 'Nous Contacter',
+      getInTouch: 'Entrer en Contact',
       
-      // Hajj & Umrah Page
-      hajjUmrahTitle: 'Programmes Hajj & Omra',
-      hajjUmrahSubtitle: 'Embarquez dans votre voyage spirituel avec nos forfaits Hajj et Omra soigneusement conçus. Vivez le pèlerinage sacré avec confort, guidance et tranquillité d\'esprit.',
-      packageType: 'Type de Forfait',
-      allTypes: 'Tous les Types',
-      hajj: 'Hajj',
-      umrah: 'Omra',
-      duration: 'Durée',
-      allDurations: 'Toutes les Durées',
-      shortDuration: '1-7 jours',
-      mediumDuration: '8-10 jours',
-      longDuration: '11+ jours',
-      priceRange: 'Gamme de Prix',
-      allPrices: 'Tous les Prix',
-      budgetPrice: 'Moins de $2,000',
-      midPrice: '$2,000 - $3,500',
-      premiumPrice: 'Plus de $3,500',
-      availablePackages: 'Forfaits Disponibles',
-      choosePackages: 'Choisissez parmi nos forfaits Hajj et Omra soigneusement sélectionnés',
-      noPackagesFound: 'Aucun forfait trouvé',
-      tryAdjustingFilters: 'Essayez d\'ajuster vos filtres pour voir plus d\'options',
-      packageIncludes: 'Le forfait comprend:',
-      moreFeatures: 'plus de fonctionnalités',
-      viewDetails: 'Voir les Détails',
-      importantInformation: 'Informations Importantes',
-      hajjRequirements: 'Exigences Hajj',
-      umrahRequirements: 'Exigences Omra',
-      validPassport6Months: 'Passeport valide avec au moins 6 mois de validité',
-      hajjVisaSaudi: 'Visa Hajj d\'Arabie Saoudite',
-      vaccinationCertificates: 'Certificats de vaccination (COVID-19, Méningite)',
-      physicalFitnessCertificate: 'Certificat de condition physique',
-      umrahVisaSaudi: 'Visa Omra d\'Arabie Saoudite',
-      covidVaccinationCertificate: 'Certificat de vaccination COVID-19',
-      travelInsurance: 'Assurance voyage',
-      experiencedGuidesSpiritual: 'Guides expérimentés qui comprennent la signification spirituelle de votre voyage',
-      carefullySelectedHotels: 'Hôtels soigneusement sélectionnés près des Mosquées Saintes',
-      roundTheClockAssistance: 'Assistance 24h/24 tout au long de votre voyage',
-      whyChooseOurPackages: 'Pourquoi Choisir Nos Forfaits?',
-      
-      // Footer
-      footerDescription: 'Votre partenaire de confiance pour les expériences de Hajj, Omra et tourisme mondial. Nous fournissons un service exceptionnel et des voyages inoubliables qui créent des souvenirs durables.',
-      quickLinks: 'Liens Rapides',
-      contactInfo: 'Informations de Contact',
-      facebook: 'Facebook',
-      instagram: 'Instagram',
-      twitter: 'Twitter',
-      phoneNumber: '+1 (555) 123-4567',
-      emailAddress: 'info@alhijrahtourism.com',
-      address: '123 Rue du Tourisme',
-      addressLine2: 'Ville de Voyage, TC 12345',
-      copyright: '© 2024 ZoukhDev. Tous droits réservés.',
-      privacyPolicy: 'Politique de Confidentialité',
-      termsOfService: 'Conditions de Service',
-      
-      // Package Content
-      premiumHajjPackage: 'Forfait Hajj Premium 2024',
-      standardHajjPackage: 'Forfait Hajj Standard 2024',
-      luxuryUmrahPackage: 'Forfait Omra de Luxe',
-      standardUmrahPackage: 'Forfait Omra Standard',
-      budgetUmrahPackage: 'Forfait Omra Économique',
-      familyHajjPackage: 'Forfait Hajj Familial',
-      
-      // Package Descriptions
-      premiumHajjDesc: 'Expérience Hajj complète avec hébergement 5 étoiles à La Mecque et Médine',
-      standardHajjDesc: 'Voyage Hajj confortable avec hébergement de qualité et services essentiels',
-      luxuryUmrahDesc: 'Expérience Omra premium avec hébergements de luxe et service personnalisé',
-      standardUmrahDesc: 'Voyage Omra confortable avec hébergement de qualité et services essentiels',
-      budgetUmrahDesc: 'Forfait Omra abordable avec hébergement de base et services essentiels',
-      familyHajjDesc: 'Forfait Hajj adapté aux familles avec hébergements spacieux et services adaptés aux enfants',
-      
-      // Package Features
-      roundTripFlights: 'Vols aller-retour',
-      fiveStarMakkah: 'Hôtel 5 étoiles à La Mecque (5 nuits)',
-      fourStarMakkah: 'Hôtel 4 étoiles à La Mecque (5 nuits)',
-      threeStarMakkah: 'Hôtel 3 étoiles à La Mecque (5 nuits)',
-      fiveStarMadinah: 'Hôtel 5 étoiles à Médine (5 nuits)',
-      fourStarMadinah: 'Hôtel 4 étoiles à Médine (5 nuits)',
-      threeStarMadinah: 'Hôtel 3 étoiles à Médine (5 nuits)',
-      allMealsIncluded: 'Tous les repas inclus',
-      breakfastIncluded: 'Petit-déjeuner inclus',
-      expertGuide: 'Guide expert tout au long',
-      expertGuideBasic: 'Guide expert',
-      transportationIncluded: 'Transport inclus',
-      visaAssistance: 'Assistance visa',
-      groupSize: 'Petit groupe (max 20)',
-      familyServices: 'Services adaptés aux familles',
-      childCare: 'Services de garde d\'enfants',
-      
-      // Additional Package Content
-      familyUmrahPackage: 'Forfait Omra Familial',
-      quickUmrahPackage: 'Forfait Omra Rapide',
-      economyHajjPackage: 'Forfait Hajj Économique 2024',
-      
-      // Additional Package Descriptions
-      familyUmrahDesc: 'Parfait pour les familles avec enfants, incluant des hébergements adaptés aux familles',
-      quickUmrahDesc: 'Voyage Omra court et doux pour ceux qui ont un temps limité',
-      economyHajjDesc: 'Forfait Hajj abordable avec services essentiels et hébergement confortable',
-      
-      // Additional Package Features
-      privateGuide: 'Guide privé',
-      vipTransportation: 'Transport VIP',
-      familyFriendlyMakkah: 'Hôtel adapté aux familles à La Mecque (3 nuits)',
-      familyFriendlyMadinah: 'Hôtel adapté aux familles à Médine (3 nuits)',
-      familyGuide: 'Guide familial',
-      groupGuide: 'Guide de groupe',
-      
-      // Global Tourism Page
-      globalTourismTitle: 'Forfaits Tourisme Mondial',
-      globalTourismSubtitle: 'Découvrez les destinations les plus étonnantes du monde avec nos forfaits de voyage soigneusement sélectionnés. Du patrimoine culturel aux sports d\'aventure, nous avons quelque chose pour chaque voyageur.',
-      destination: 'Destination',
-      allDestinations: 'Toutes les Destinations',
-      europe: 'Europe',
-      asia: 'Asie',
-      africa: 'Afrique',
-      americas: 'Amériques',
-      middleEast: 'Moyen-Orient',
-      oceania: 'Océanie',
-      interest: 'Intérêt',
-      allInterests: 'Tous les Intérêts',
-      cultural: 'Culturel',
-      adventure: 'Aventure',
-      wildlife: 'Faune',
-      nature: 'Nature',
-      relaxation: 'Détente',
-      chooseGlobalPackages: 'Choisissez parmi notre collection diversifiée d\'expériences de voyage mondiales',
-      popularDestinations: 'Destinations Populaires',
-      popularDestinationsSubtitle: 'Découvrez les destinations de voyage les plus recherchées au monde',
-      packagesAvailable: 'forfaits disponibles',
-      whyChooseGlobalTours: 'Pourquoi Choisir Nos Tours Mondiaux?',
-      whyChooseGlobalToursSubtitle: 'Découvrez le monde avec confiance et confort',
-      expertLocalGuides: 'Guides Locaux Experts',
-      expertLocalGuidesDesc: 'Nos guides locaux compétents s\'assurent que vous vivez la culture authentique et les joyaux cachés de chaque destination.',
-      curatedExperiences: 'Expériences Sélectionnées',
-      curatedExperiencesDesc: 'Chaque itinéraire est soigneusement conçu pour fournir des expériences uniques qui vont au-delà des attractions touristiques typiques.',
-      support247Global: 'Support 24/7',
-      support247GlobalDesc: 'Assistance 24h/24 tout au long de votre voyage pour assurer une expérience de voyage fluide et sans souci.',
-      
-      // Contact Page
-      contactTitle: 'Nous Contacter',
-      contactSubtitle: 'Nous sommes là pour vous aider à planifier votre voyage parfait. Contactez nos experts en voyage pour une assistance personnalisée avec vos besoins en Hajj, Omra ou tourisme mondial.',
-      phone: 'Téléphone',
-      email: 'Email',
-      address: 'Adresse',
-      businessHours: 'Heures d\'Ouverture',
-      sendMessage: 'Envoyez-nous un Message',
-      fullName: 'Nom Complet',
+      // Additional French translations (no duplicates)
+      visaAssistance: 'Assistance Visa',
+      cancel: 'Annuler',
+      customer: 'Client',
       emailAddress: 'Adresse Email',
       phoneNumber: 'Numéro de Téléphone',
-      inquiryType: 'Type d\'Enquête',
-      hajjInquiry: 'Enquête Hajj',
-      umrahInquiry: 'Enquête Omra',
-      globalTourismInquiry: 'Tourisme Mondial',
-      bookingSupport: 'Support Réservation',
-      generalInquiry: 'Enquête Générale',
-      complaint: 'Plainte',
-      other: 'Autre',
-      subject: 'Sujet',
-      message: 'Message',
-      preferredContactMethod: 'Méthode de Contact Préférée',
-      visitOurOffice: 'Visitez Notre Bureau',
-      officeHours: 'Heures de Bureau',
-      mondayFriday: 'Lundi - Vendredi',
-      saturday: 'Samedi',
-      sunday: 'Dimanche',
-      closed: 'Fermé',
-      quickLinks: 'Liens Rapides',
-      frequentlyAskedQuestions: 'Questions Fréquemment Posées',
-      faqSubtitle: 'Trouvez des réponses aux questions courantes sur nos services',
-      messageSentSuccessfully: 'Message Envoyé avec Succès!',
-      messageSentDesc: 'Merci de nous avoir contactés. Nous avons reçu votre message et vous répondrons dans les 24 heures.',
-        sendAnotherMessage: 'Envoyer un Autre Message',
-        sending: 'Envoi en cours...',
-        sendMessageBtn: 'Envoyer le Message',
-
-        // Package Details Page
-        overview: 'Aperçu',
-        itinerary: 'Itinéraire',
-        inclusions: 'Inclus',
-        requirements: 'Exigences',
-        packageOverview: 'Aperçu du Forfait',
-        keyFeatures: 'Caractéristiques Clés',
-        quickFacts: 'Faits Rapides',
-        duration: 'Durée',
-        rating: 'Note',
-        reviews: 'Avis',
-        type: 'Type',
-        perPerson: 'par personne',
-        bookThisPackage: 'Réserver ce Forfait',
-        detailedItinerary: 'Itinéraire Détaillé',
-        day: 'Jour',
-        activities: 'Activités',
-        whatsIncluded: 'Ce qui est Inclus',
-        whatsNotIncluded: 'Ce qui n\'est pas Inclus',
-        travelRequirements: 'Exigences de Voyage',
-        importantNote: 'Note Importante',
-        requirementsNote: 'Veuillez vous assurer que toutes les exigences sont remplies avant la réservation. Notre équipe vous aidera avec le traitement des visas et la documentation.',
-        youMightAlsoLike: 'Vous Pourriez Aussi Aimer',
-        exploreOtherPackages: 'Explorez d\'autres forfaits incroyables',
-        askQuestion: 'Poser une Question',
-        bookNow: 'Réserver Maintenant',
-        save: 'Économiser',
-        perPersonDoubleOccupancy: 'Par personne (occupation double)',
-
-        // Booking Form Page
-        bookYourJourney: 'Réservez Votre Voyage',
-        completeFormToReserve: 'Complétez le formulaire ci-dessous pour réserver votre forfait de voyage',
-        serviceSelection: 'Sélection du Service',
-        personalInformation: 'Informations Personnelles',
-        travelDetails: 'Détails du Voyage',
-        emergencyContact: 'Contact d\'Urgence',
-        paymentConfirmation: 'Paiement et Confirmation',
-        selectYourService: 'Sélectionnez Votre Service',
-        serviceType: 'Type de Service',
-        selectServiceType: 'Sélectionnez un type de service',
-        package: 'Forfait',
-        selectPackage: 'Sélectionnez un forfait',
-        firstName: 'Prénom',
-        lastName: 'Nom de Famille',
-        email: 'Email',
-        phoneNumber: 'Numéro de Téléphone',
-        dateOfBirth: 'Date de Naissance',
-        nationality: 'Nationalité',
-        passportNumber: 'Numéro de Passeport',
-        passportExpiryDate: 'Date d\'Expiration du Passeport',
-        departureCity: 'Ville de Départ',
-        numberOfTravelers: 'Nombre de Voyageurs',
-        preferredDepartureDate: 'Date de Départ Préférée',
-        returnDate: 'Date de Retour',
-        roomType: 'Type de Chambre',
-        selectRoomType: 'Sélectionnez le type de chambre',
-        specialRequests: 'Demandes Spéciales',
-        additionalServices: 'Services Supplémentaires',
-        emergencyContactName: 'Nom du Contact d\'Urgence',
-        emergencyContactPhone: 'Téléphone du Contact d\'Urgence',
-        relationship: 'Relation',
-        selectRelationship: 'Sélectionnez la relation',
-        bookingSummary: 'Résumé de la Réservation',
-        travelers: 'Voyageurs',
-        basePrice: 'Prix de Base',
-        total: 'Total',
-        paymentMethod: 'Méthode de Paiement',
-        selectPaymentMethod: 'Sélectionnez la méthode de paiement',
-        agreeToTerms: 'J\'accepte les Termes et Conditions et la Politique de Confidentialité',
-        previous: 'Précédent',
-        next: 'Suivant',
-        submitBooking: 'Soumettre la Réservation',
-        person: 'Personne',
-        people: 'Personnes',
-        spouse: 'Époux/Épouse',
-        parent: 'Parent',
-        sibling: 'Frère/Sœur',
-        child: 'Enfant',
-        friend: 'Ami/Amie',
-        other: 'Autre',
-        singleRoom: 'Chambre Simple',
-        doubleRoom: 'Chambre Double',
-        tripleRoom: 'Chambre Triple',
-        quadRoom: 'Chambre Quadruple',
-        extraBaggageAllowance: 'Franchise Bagages Supplémentaire',
-        seatSelection: 'Sélection de Siège',
-        mealUpgrade: 'Amélioration de Repas',
-        inFlightWifi: 'WiFi en Vol',
-        creditCard: 'Carte de Crédit',
-        debitCard: 'Carte de Débit',
-        bankTransfer: 'Virement Bancaire',
-        installments: 'Versements',
-
-        // Admin Dashboard
-        adminDashboard: 'Tableau de Bord Admin',
-        dashboardOverview: 'Aperçu du Tableau de Bord',
-        packageManagement: 'Gestion des Forfaits',
-        manageYourTravelPackages: 'Gérez vos forfaits de voyage et tarifs',
-        bookingManagement: 'Gestion des Réservations',
-        manageCustomerBookings: 'Gérez les réservations et demandes des clients',
-        userManagement: 'Gestion des Utilisateurs',
-        manageCustomersAndStaff: 'Gérez les clients et les membres du personnel',
-        contentManagement: 'Gestion du Contenu',
-        manageTranslationsPagesMedia: 'Gérez les traductions, pages et contenu média',
-        analyticsReports: 'Analyses et Rapports',
-        trackBusinessPerformance: 'Suivez les performances de votre entreprise et les insights',
-        settings: 'Paramètres',
-        configureWebsiteSettings: 'Configurez les paramètres et préférences de votre site web',
-        totalBookings: 'Total des Réservations',
-        totalRevenue: 'Revenus Totaux',
-        activePackages: 'Forfaits Actifs',
-        registeredUsers: 'Utilisateurs Inscrits',
-        fromLastMonth: 'du mois dernier',
-        revenueOverview: 'Aperçu des Revenus',
-        recentBookings: 'Réservations Récentes',
-        topPerformingPackages: 'Meilleurs Forfaits',
-        customerInsights: 'Insights Clients',
-        newCustomers: 'Nouveaux Clients',
-        returningCustomers: 'Clients Récurrents',
-        averageAge: 'Âge Moyen',
-        topCountries: 'Meilleurs Pays',
-        quickActions: 'Actions Rapides',
-        addNewPackage: 'Ajouter un Nouveau Forfait',
-        viewBookings: 'Voir les Réservations',
-        generateReport: 'Générer un Rapport',
-        hajjPackages: 'Forfaits Hajj',
-        umrahPackages: 'Forfaits Omra',
-        globalTourism: 'Tourisme Mondial',
-        customers: 'Clients',
-        staffMembers: 'Membres du Personnel',
-        translations: 'Traductions',
-        pages: 'Pages',
-        mediaLibrary: 'Bibliothèque Média',
-        generalSettings: 'Paramètres Généraux',
-        appearance: 'Apparence',
-        notifications: 'Notifications',
-        security: 'Sécurité',
-        emailSettings: 'Paramètres Email',
-        backupRestore: 'Sauvegarde et Restauration',
-        siteName: 'Nom du Site',
-        siteDescription: 'Description du Site',
-        contactEmail: 'Email de Contact',
-        contactPhone: 'Téléphone de Contact',
-        address: 'Adresse',
-        currency: 'Devise',
-        timezone: 'Fuseau Horaire',
-        dateFormat: 'Format de Date',
-        defaultLanguage: 'Langue par Défaut',
-        theme: 'Thème',
-        lightMode: 'Mode Clair',
-        darkMode: 'Mode Sombre',
-        brandColors: 'Couleurs de Marque',
-        primary: 'Primaire',
-        secondary: 'Secondaire',
-        accent: 'Accent',
-        background: 'Arrière-plan',
-        emailNotifications: 'Notifications Email',
-        smsNotifications: 'Notifications SMS',
-        maintenanceMode: 'Mode Maintenance',
-        allowUserRegistration: 'Autoriser l\'Inscription',
-        requireEmailVerification: 'Exiger la Vérification Email',
-        maximumFileSize: 'Taille Max de Fichier (MB)',
-        allowedFileTypes: 'Types de Fichiers Autorisés',
-        smtpHost: 'Hôte SMTP',
-        smtpPort: 'Port SMTP',
-        smtpUsername: 'Nom d\'Utilisateur SMTP',
-        smtpPassword: 'Mot de Passe SMTP',
-        fromEmailAddress: 'Adresse Email Expéditeur',
-        fromName: 'Nom Expéditeur',
-        testEmailConfiguration: 'Tester la Configuration Email',
-        saveEmailSettings: 'Sauvegarder les Paramètres Email',
-        createBackup: 'Créer une Sauvegarde',
-        restoreBackup: 'Restaurer une Sauvegarde',
-        backupHistory: 'Historique des Sauvegardes',
-        createBackupNow: 'Créer une Sauvegarde Maintenant',
-        download: 'Télécharger',
-        delete: 'Supprimer',
-        edit: 'Modifier',
-        view: 'Voir',
-        add: 'Ajouter',
-        save: 'Sauvegarder',
-        cancel: 'Annuler',
-        confirm: 'Confirmer',
-        pending: 'En Attente',
-        cancelled: 'Annulé',
-        active: 'Actif',
-        inactive: 'Inactif',
-        draft: 'Brouillon',
-        published: 'Publié',
-        paid: 'Payé',
-        refunded: 'Remboursé',
-        package: 'Forfait',
-        duration: 'Durée',
-        price: 'Prix',
-        bookings: 'Réservations',
-        revenue: 'Revenus',
-        status: 'Statut',
-        actions: 'Actions',
-        customer: 'Client',
-        contact: 'Contact',
-        totalSpent: 'Total Dépensé',
-        lastLogin: 'Dernière Connexion',
-        role: 'Rôle',
-        department: 'Département',
-        permissions: 'Permissions',
-        translationKey: 'Clé de Traduction',
-        english: 'Anglais',
-        arabic: 'Arabe',
-        french: 'Français',
-        lastModified: 'Dernière Modification',
-        modifiedBy: 'Modifié par',
-        slug: 'Slug',
-        views: 'Vues',
-        uploadMedia: 'Télécharger des Médias',
-        addContent: 'Ajouter du Contenu',
-        contentType: 'Type de Contenu',
-        title: 'Titre',
-        content: 'Contenu',
-        export: 'Exporter',
-        newBooking: 'Nouvelle Réservation',
-        allBookings: 'Toutes les Réservations',
-        confirmed: 'Confirmé',
-        cancelled: 'Annulé',
-        bookingId: 'ID de Réservation',
-        customer: 'Client',
-        amount: 'Montant',
-        payment: 'Paiement',
-        travelDate: 'Date de Voyage',
-        selectedBookings: 'réservation(s) sélectionnée(s)',
-        confirmSelected: 'Confirmer Sélection',
-        sendEmail: 'Envoyer Email',
-        cancelSelected: 'Annuler Sélection',
-        travelers: 'voyageur(s)',
-        email: 'Email',
-        totalCustomers: 'Total des Clients',
-        activeCustomers: 'Clients Actifs',
-        staffMembers: 'Membres du Personnel',
-        contact: 'Contact',
-        totalSpent: 'Total Dépensé',
-        lastLogin: 'Dernière Connexion',
-        staffMember: 'Membre du Personnel',
-        department: 'Département',
-        permissions: 'Permissions',
-        addUser: 'Ajouter un Utilisateur',
-        fullName: 'Nom Complet',
-        emailAddress: 'Adresse Email',
-        phoneNumber: 'Numéro de Téléphone',
-        userType: 'Type d\'Utilisateur',
-        translations: 'Traductions',
-        pages: 'Pages',
-        mediaLibrary: 'Bibliothèque Média',
-        translationKey: 'Clé de Traduction',
-        lastModified: 'Dernière Modification',
-        modifiedBy: 'Modifié par',
-        publishedPages: 'Pages Publiées',
-        draftPages: 'Pages Brouillon',
-        totalPageViews: 'Total des Vues de Page',
-        addContent: 'Ajouter du Contenu',
-        contentType: 'Type de Contenu',
-        slug: 'Slug',
-        views: 'Vues',
-        copy: 'Copier',
-        duplicate: 'Dupliquer',
-        uploadMedia: 'Télécharger des Médias',
-        language: 'Langue',
-        avgBookingValue: 'Valeur Moyenne de Réservation',
-        conversionRate: 'Taux de Conversion',
-        revenueTrend: 'Tendance des Revenus',
-        bookingsByType: 'Réservations par Type',
-        topPerformingPackages: 'Forfaits les Plus Performants',
-        avgValue: 'Valeur Moyenne',
-        customerInsights: 'Insights Clients',
-        newCustomers: 'Nouveaux Clients',
-        returningCustomers: 'Clients de Retour',
-        averageAge: 'Âge Moyen',
-        topCountries: 'Top Pays',
-        years: 'ans',
-        fromLastPeriod: 'de la période précédente',
-        generalSettings: 'Paramètres Généraux',
-        appearance: 'Apparence',
-        notifications: 'Notifications',
-        security: 'Sécurité',
-        emailSettings: 'Paramètres Email',
-        backupRestore: 'Sauvegarde et Restauration',
-        siteName: 'Nom du Site',
-        siteDescription: 'Description du Site',
-        contactEmail: 'Email de Contact',
-        contactPhone: 'Téléphone de Contact',
-        address: 'Adresse',
-        currency: 'Devise',
-        timezone: 'Fuseau Horaire',
-        dateFormat: 'Format de Date',
-        defaultLanguage: 'Langue par Défaut',
-        theme: 'Thème',
-        lightMode: 'Mode Clair',
-        darkMode: 'Mode Sombre',
-        brandColors: 'Couleurs de Marque',
-        primary: 'Primaire',
-        secondary: 'Secondaire',
-        accent: 'Accent',
-        background: 'Arrière-plan',
-        emailNotifications: 'Notifications Email',
-        smsNotifications: 'Notifications SMS',
-        maintenanceMode: 'Mode Maintenance',
-        allowUserRegistration: 'Autoriser l\'Inscription des Utilisateurs',
-        requireEmailVerification: 'Exiger la Vérification Email',
-        maximumFileSize: 'Taille Maximale de Fichier (MB)',
-        allowedFileTypes: 'Types de Fichiers Autorisés',
-        smtpHost: 'Hôte SMTP',
-        smtpPort: 'Port SMTP',
-        smtpUsername: 'Nom d\'Utilisateur SMTP',
-        smtpPassword: 'Mot de Passe SMTP',
-        fromEmailAddress: 'Adresse Email Expéditeur',
-        fromName: 'Nom Expéditeur',
-        testEmailConfiguration: 'Tester la Configuration Email',
-        saveEmailSettings: 'Sauvegarder les Paramètres Email',
-        createBackup: 'Créer une Sauvegarde',
-        restoreBackup: 'Restaurer une Sauvegarde',
-        backupHistory: 'Historique des Sauvegardes',
-        createBackupNow: 'Créer une Sauvegarde Maintenant',
-        download: 'Télécharger',
-        exportReport: 'Exporter un Rapport',
-        // Authentication
-        signInToAccount: 'Connectez-vous à votre compte',
-        dontHaveAccount: "Vous n'avez pas de compte ?",
-        signUp: "S'inscrire",
-        createAccount: 'Créez votre compte',
-        alreadyHaveAccount: 'Vous avez déjà un compte ?',
-        signIn: 'Se connecter',
-        signingIn: 'Connexion en cours...',
-        creatingAccount: 'Création du compte...',
-        rememberMe: 'Se souvenir de moi',
-        forgotPassword: 'Mot de passe oublié ?',
-        orContinueWith: 'Ou continuer avec',
-        emailRequired: 'Email requis',
-        emailInvalid: 'Email invalide',
-        passwordRequired: 'Mot de passe requis',
-        passwordMinLength: 'Le mot de passe doit contenir au moins 6 caractères',
-        passwordMinLength8: 'Le mot de passe doit contenir au moins 8 caractères',
-        passwordComplexity: 'Le mot de passe doit contenir majuscules, minuscules et chiffres',
-        confirmPasswordRequired: 'Veuillez confirmer votre mot de passe',
-        passwordsDoNotMatch: 'Les mots de passe ne correspondent pas',
-        mustAgreeToTerms: 'Vous devez accepter les conditions générales',
-        loginError: 'Échec de la connexion. Veuillez réessayer.',
-        signupError: 'Échec de l\'inscription. Veuillez réessayer.',
-        invalidCredentials: 'Email ou mot de passe invalide',
-        firstNameRequired: 'Prénom requis',
-        lastNameRequired: 'Nom requis',
-        phoneRequired: 'Numéro de téléphone requis',
-        phoneInvalid: 'Numéro de téléphone invalide',
-        passwordRequirements: 'Doit contenir majuscules, minuscules et chiffres',
-        agreeTo: 'J\'accepte les',
-        termsAndConditions: 'Conditions Générales',
-        and: 'et',
-        privacyPolicy: 'Politique de Confidentialité',
-        subscribeToNewsletter: 'S\'abonner à la newsletter pour les mises à jour',
-        // Profile
-        overview: 'Aperçu',
-        myBookings: 'Mes Réservations',
-        profileSettings: 'Paramètres du Profil',
-        preferences: 'Préférences',
-        accountOverview: 'Aperçu du Compte',
-        memberSince: 'Membre depuis',
-        totalBookings: 'Total des Réservations',
-        totalSpent: 'Total Dépensé',
-        confirmedBookings: 'Réservations Confirmées',
-        recentBookings: 'Réservations Récentes',
-        bookingId: 'ID de Réservation',
-        travelDate: 'Date de Voyage',
-        bookNewTrip: 'Réserver un Nouveau Voyage',
-        bookingDate: 'Date de Réservation',
-        savePreferences: 'Sauvegarder les Préférences',
-        receiveEmailUpdates: 'Recevoir des mises à jour par email sur vos réservations',
-        receiveSMSUpdates: 'Recevoir des mises à jour SMS pour les notifications importantes',
-        receiveNewsletter: 'Recevoir notre newsletter avec conseils de voyage et offres',
-        newsletter: 'Newsletter',
-        // Admin
-        adminLogin: 'Connexion Admin',
-        adminLoginSubtitle: 'Accéder au tableau de bord admin',
-        demoCredentials: 'Identifiants de Démonstration',
-        backToWebsite: 'Retour au Site Web',
-        last7Days: '7 derniers jours',
-        last30Days: '30 derniers jours',
-        last90Days: '90 derniers jours',
-        lastYear: 'Dernière année',
-        packageTitle: 'Titre du Forfait',
-        packageType: 'Type de Forfait',
-        originalPrice: 'Prix Original',
-        description: 'Description',
-        addPackage: 'Ajouter un Forfait',
-        fullName: 'Nom Complet',
-        emailAddress: 'Adresse Email',
-        phoneNumber: 'Numéro de Téléphone',
-        userType: 'Type d\'Utilisateur',
-        addUser: 'Ajouter un Utilisateur',
-        profileSettings: 'Paramètres de Profil',
-        accountSettings: 'Paramètres de Compte',
-        logout: 'Déconnexion',
-        viewWebsite: 'Voir le Site Web',
-        quickStats: 'Statistiques Rapides',
-        totalPageViews: 'Total des Vues de Pages',
-        publishedPages: 'Pages Publiées',
-        draftPages: 'Pages Brouillon',
-        translationKeys: 'Clés de Traduction'
+      email: 'Email',
+      totalSpent: 'Total Dépensé',
+      fullName: 'Nom Complet',
+      address: 'Adresse',
+      overview: 'Aperçu',
+      totalBookings: 'Total des Réservations',
+      recentBookings: 'Réservations Récentes',
+      bookingId: 'ID de Réservation',
+      travelDate: 'Date de Voyage',
+      packageType: 'Type de Forfait',
+      userType: 'Type d\'Utilisateur',
+      addUser: 'Ajouter Utilisateur',
+      totalPageViews: 'Total des Vues de Page',
+      publishedPages: 'Pages Publiées',
+      draftPages: 'Pages Brouillon'
     }
   };
 
-  useEffect(() => {
-    // Apply dark mode class to document
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    
-    // Save to localStorage
-    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-  }, [isDarkMode]);
-
-  useEffect(() => {
-    // Save language to localStorage
-    localStorage.setItem('language', language);
-  }, [language]);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(prev => !prev);
-  };
-
-  const changeLanguage = (langCode) => {
-    setLanguage(langCode);
-    setIsLanguageDropdownOpen(false);
-  };
-
-  const getCurrentLanguage = () => {
-    return languages.find(lang => lang.code === language) || languages[0];
-  };
-
+  // Translation function
   const t = (key) => {
     return translations[language]?.[key] || translations.en[key] || key;
   };
 
+  // Get current language info
+  const getCurrentLanguage = () => {
+    return languages.find(lang => lang.code === language) || languages[0];
+  };
+
+  // Change language function
+  const changeLanguage = (langCode) => {
+    setLanguage(langCode);
+    localStorage.setItem('language', langCode);
+    setIsLanguageDropdownOpen(false);
+  };
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    localStorage.setItem('darkMode', JSON.stringify(newDarkMode));
+  };
+
+  // Save dark mode preference
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
+
+  // Save language preference
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
+
   const value = {
+    // State
     isDarkMode,
-    toggleDarkMode,
     language,
-    changeLanguage,
-    languages,
-    getCurrentLanguage,
     isLanguageDropdownOpen,
-    setIsLanguageDropdownOpen,
-    t
+    
+    // Data
+    languages,
+    
+    // Functions
+    t,
+    toggleDarkMode,
+    changeLanguage,
+    getCurrentLanguage,
+    setIsLanguageDropdownOpen
   };
 
   return (

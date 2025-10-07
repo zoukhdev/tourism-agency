@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
+import { secureApiRequest, sanitizeInput, rateLimit } from '../utils/security';
 
 const AdminLogin = () => {
   const { t, isDarkMode } = useApp();
@@ -56,31 +57,65 @@ const AdminLogin = () => {
     setIsLoading(true);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // SECURITY: Rate limiting
+      const clientId = formData.email; // Use email as rate limit key
+      if (!rateLimit(`admin_login_${clientId}`, 5, 300000)) { // 5 attempts per 5 minutes
+        setErrors({ general: 'Too many login attempts. Please try again later.' });
+        return;
+      }
       
-      // For demo purposes, accept admin@alhijrah.com / admin123
-      if (formData.email === 'admin@alhijrah.com' && formData.password === 'admin123') {
-        // Store admin data in localStorage
+      // SECURITY: Sanitize inputs
+      const sanitizedData = {
+        email: sanitizeInput(formData.email.toLowerCase().trim()),
+        password: formData.password, // Don't sanitize password as it may contain special chars
+        rememberMe: formData.rememberMe
+      };
+      
+      // SECURITY: Use secure API request with CSRF protection
+      const response = await secureApiRequest('/api/admin/login', {
+        method: 'POST',
+        body: JSON.stringify(sanitizedData)
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        
+        // Store admin data securely
         const adminData = {
-          id: 1,
-          name: 'Admin User',
-          email: formData.email,
-          role: 'Administrator',
-          permissions: ['all'],
-          avatar: null,
-          joinDate: new Date().toISOString(),
-          isAdmin: true
+          id: data.user.id,
+          name: data.user.name,
+          email: data.user.email,
+          role: data.user.role,
+          permissions: data.user.permissions,
+          avatar: data.user.avatar,
+          joinDate: data.user.joinDate,
+          isAdmin: true,
+          token: data.token,
+          expiresAt: data.expiresAt
         };
         
-        localStorage.setItem('admin', JSON.stringify(adminData));
-        localStorage.setItem('isAdminAuthenticated', 'true');
+        // Store in sessionStorage for better security (clears on browser close)
+        sessionStorage.setItem('admin', JSON.stringify(adminData));
+        sessionStorage.setItem('isAdminAuthenticated', 'true');
+        
+        // If remember me is checked, also store in localStorage with expiration
+        if (formData.rememberMe) {
+          const rememberData = {
+            ...adminData,
+            rememberToken: data.rememberToken,
+            rememberExpiresAt: data.rememberExpiresAt
+          };
+          localStorage.setItem('adminRemember', JSON.stringify(rememberData));
+        }
         
         navigate('/admin');
       } else {
-        setErrors({ general: t('invalidCredentials') });
+        const errorData = await response.json();
+        setErrors({ general: errorData.message || t('invalidCredentials') });
       }
     } catch (error) {
+      // SECURITY: Don't expose internal error details
+      console.error('Login error:', error);
       setErrors({ general: t('loginError') });
     } finally {
       setIsLoading(false);
@@ -113,11 +148,10 @@ const AdminLogin = () => {
               </div>
               <div className="ml-3">
                 <h3 className="text-sm font-medium text-blue-800 dark:text-blue-300">
-                  {t('demoCredentials')}
+                  Secure Admin Access
                 </h3>
                 <div className="mt-2 text-sm text-blue-700 dark:text-blue-300">
-                  <p><strong>{t('email')}:</strong> admin@alhijrah.com</p>
-                  <p><strong>{t('password')}:</strong> admin123</p>
+                  <p>Please contact your system administrator for login credentials.</p>
                 </div>
               </div>
             </div>

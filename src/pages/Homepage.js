@@ -9,7 +9,7 @@
  * - Call-to-action section
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 
@@ -17,7 +17,26 @@ import { useApp } from '../context/AppContext';
 import hajjImage from '../images/pexels-w4ed-3742589.jpg';
 import umrahImage from '../images/pexels-rushdi-fatani-782816372-19042360.jpg';
 import DebugPanel from '../components/DebugPanel';
-import { debugLog, performanceMonitor, lifecycleLogger } from '../utils/debug';
+import { debugLog, performanceMonitor } from '../utils/debug';
+
+// Memoized ServiceCard component for better performance
+const ServiceCard = memo(({ service, t }) => (
+  <div className="card text-center">
+    <div className="flex justify-center mb-4">
+      <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center text-primary-600 dark:text-primary-400">
+        {service.icon}
+      </div>
+    </div>
+    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+      {service.title}
+    </h3>
+    <p className="text-gray-600 dark:text-gray-300">
+      {service.description}
+    </p>
+  </div>
+));
+
+ServiceCard.displayName = 'ServiceCard';
 
 const Homepage = () => {
   const { t } = useApp();
@@ -25,7 +44,7 @@ const Homepage = () => {
   // Debug logging using debug utilities (reduced frequency)
   useEffect(() => {
     debugLog.info('Homepage component mounted', { language: t('home') }, 'Homepage');
-  }, []);
+  }, [t]);
   
   // ===========================================
   // HERO SLIDER STATE AND CONFIGURATION
@@ -199,17 +218,7 @@ const Homepage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="text-center p-6 card">
-                <div className="text-primary-600 mb-4 flex justify-center">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {service.description}
-                </p>
-              </div>
+              <ServiceCard key={index} service={service} t={t} />
             ))}
           </div>
         </div>
@@ -233,11 +242,12 @@ const Homepage = () => {
             {specialOffers.map((offer) => (
               <div key={offer.id} className="card overflow-hidden">
                 <div className="relative">
-                  <img
-                    src={offer.image}
-                    alt={offer.title}
-                    className="w-full h-48 object-cover"
-                  />
+                    <img
+                      src={offer.image}
+                      alt={`${offer.title} - ${offer.description}`}
+                      className="w-full h-48 object-cover"
+                      loading="lazy"
+                    />
                   <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {offer.discount}
                   </div>

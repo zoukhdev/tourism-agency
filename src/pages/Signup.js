@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
+import { secureApiRequest, sanitizeInput, rateLimit } from '../utils/security';
 
 const Signup = () => {
   const { t, isDarkMode } = useApp();
@@ -87,30 +88,63 @@ const Signup = () => {
     setIsLoading(true);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // SECURITY: Rate limiting for registration
+      const clientId = formData.email; // Use email as rate limit key
+      if (!rateLimit(`user_signup_${clientId}`, 3, 600000)) { // 3 attempts per 10 minutes
+        setErrors({ general: 'Too many registration attempts. Please try again later.' });
+        return;
+      }
       
-      // Store user data in localStorage
-      const userData = {
-        id: Date.now(),
-        name: `${formData.firstName} ${formData.lastName}`,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phone: formData.phone,
-        avatar: null,
-        joinDate: new Date().toISOString(),
-        isAdmin: false,
-        preferences: {
-          newsletter: formData.subscribeNewsletter
-        }
+      // SECURITY: Sanitize inputs
+      const sanitizedData = {
+        firstName: sanitizeInput(formData.firstName.trim()),
+        lastName: sanitizeInput(formData.lastName.trim()),
+        email: sanitizeInput(formData.email.toLowerCase().trim()),
+        phone: sanitizeInput(formData.phone.trim()),
+        password: formData.password, // Don't sanitize password as it may contain special chars
+        agreeToTerms: formData.agreeToTerms,
+        subscribeNewsletter: formData.subscribeNewsletter
       };
       
-      localStorage.setItem('user', JSON.stringify(userData));
-      localStorage.setItem('isAuthenticated', 'true');
-      
-      navigate('/profile');
+      // SECURITY: Use secure API request with CSRF protection
+      const response = await secureApiRequest('/api/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(sanitizedData)
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        
+        // Store user data securely
+        const userData = {
+          id: data.user.id,
+          name: `${data.user.firstName} ${data.user.lastName}`,
+          firstName: data.user.firstName,
+          lastName: data.user.lastName,
+          email: data.user.email,
+          phone: data.user.phone,
+          avatar: data.user.avatar,
+          joinDate: data.user.joinDate,
+          isAdmin: false,
+          token: data.token,
+          expiresAt: data.expiresAt,
+          preferences: {
+            newsletter: formData.subscribeNewsletter
+          }
+        };
+        
+        // Store in sessionStorage for better security
+        sessionStorage.setItem('user', JSON.stringify(userData));
+        sessionStorage.setItem('isAuthenticated', 'true');
+        
+        navigate('/profile');
+      } else {
+        const errorData = await response.json();
+        setErrors({ general: errorData.message || t('signupError') });
+      }
     } catch (error) {
+      // SECURITY: Don't expose internal error details
+      console.error('Registration error:', error);
       setErrors({ general: t('signupError') });
     } finally {
       setIsLoading(false);

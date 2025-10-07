@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 
 const BookingForm = () => {
@@ -150,6 +149,9 @@ const BookingForm = () => {
       case 5:
         if (!formData.paymentMethod) newErrors.paymentMethod = 'Payment method is required';
         if (!formData.agreeToTerms) newErrors.agreeToTerms = 'You must agree to the terms and conditions';
+        break;
+      default:
+        // No validation for unknown steps
         break;
     }
     

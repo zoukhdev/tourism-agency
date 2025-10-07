@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
+import { secureApiRequest, sanitizeInput, rateLimit } from '../utils/security';
 
 const Login = () => {
   const { t, isDarkMode } = useApp();
@@ -56,28 +57,64 @@ const Login = () => {
     setIsLoading(true);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // SECURITY: Rate limiting
+      const clientId = formData.email; // Use email as rate limit key
+      if (!rateLimit(`user_login_${clientId}`, 10, 300000)) { // 10 attempts per 5 minutes
+        setErrors({ general: 'Too many login attempts. Please try again later.' });
+        return;
+      }
       
-      // For demo purposes, accept any valid email/password
-      if (formData.email && formData.password) {
-        // Store user data in localStorage
+      // SECURITY: Sanitize inputs
+      const sanitizedData = {
+        email: sanitizeInput(formData.email.toLowerCase().trim()),
+        password: formData.password, // Don't sanitize password as it may contain special chars
+        rememberMe: formData.rememberMe
+      };
+      
+      // SECURITY: Use secure API request with CSRF protection
+      const response = await secureApiRequest('/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(sanitizedData)
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        
+        // Store user data securely
         const userData = {
-          id: 1,
-          name: 'John Doe',
-          email: formData.email,
-          phone: '+966501234567',
-          avatar: null,
-          joinDate: new Date().toISOString(),
-          isAdmin: false
+          id: data.user.id,
+          name: data.user.name,
+          email: data.user.email,
+          phone: data.user.phone,
+          avatar: data.user.avatar,
+          joinDate: data.user.joinDate,
+          isAdmin: false,
+          token: data.token,
+          expiresAt: data.expiresAt
         };
         
-        localStorage.setItem('user', JSON.stringify(userData));
-        localStorage.setItem('isAuthenticated', 'true');
+        // Store in sessionStorage for better security (clears on browser close)
+        sessionStorage.setItem('user', JSON.stringify(userData));
+        sessionStorage.setItem('isAuthenticated', 'true');
+        
+        // If remember me is checked, also store in localStorage with expiration
+        if (formData.rememberMe) {
+          const rememberData = {
+            ...userData,
+            rememberToken: data.rememberToken,
+            rememberExpiresAt: data.rememberExpiresAt
+          };
+          localStorage.setItem('userRemember', JSON.stringify(rememberData));
+        }
         
         navigate('/profile');
+      } else {
+        const errorData = await response.json();
+        setErrors({ general: errorData.message || t('invalidCredentials') });
       }
     } catch (error) {
+      // SECURITY: Don't expose internal error details
+      console.error('Login error:', error);
       setErrors({ general: t('loginError') });
     } finally {
       setIsLoading(false);

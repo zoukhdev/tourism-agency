@@ -163,10 +163,12 @@ export const lifecycleLogger = {
 };
 
 // Export default debug utilities
-export default {
+const debugUtils = {
   log: debugLog,
   performance: performanceMonitor,
   state: stateTracker,
   network: networkLogger,
   lifecycle: lifecycleLogger
 };
+
+export default debugUtils;

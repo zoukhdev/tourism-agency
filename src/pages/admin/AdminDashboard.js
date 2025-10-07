@@ -35,13 +35,41 @@ const AdminDashboard = () => {
   }, []);
 
   useEffect(() => {
-    // Check if admin is authenticated
-    const isAdminAuthenticated = localStorage.getItem('isAdminAuthenticated');
-    const adminData = localStorage.getItem('admin');
+    // SECURITY: Check if admin is authenticated using sessionStorage
+    const isAdminAuthenticated = sessionStorage.getItem('isAdminAuthenticated');
+    const adminData = sessionStorage.getItem('admin');
     
-    if (!isAdminAuthenticated || !adminData) {
+    // Also check for remember me token in localStorage
+    const rememberData = localStorage.getItem('adminRemember');
+    
+    if (!isAdminAuthenticated && !adminData && !rememberData) {
       navigate('/admin/login');
       return;
+    }
+    
+    // If using remember me token, restore session
+    if (rememberData && !isAdminAuthenticated) {
+      try {
+        const remember = JSON.parse(rememberData);
+        const now = new Date().getTime();
+        
+        // Check if remember token is still valid
+        if (remember.rememberExpiresAt && now < new Date(remember.rememberExpiresAt).getTime()) {
+          // Restore session from remember token
+          sessionStorage.setItem('admin', JSON.stringify(remember));
+          sessionStorage.setItem('isAdminAuthenticated', 'true');
+        } else {
+          // Remember token expired, clear it
+          localStorage.removeItem('adminRemember');
+          navigate('/admin/login');
+          return;
+        }
+      } catch (error) {
+        // Invalid remember data, clear it
+        localStorage.removeItem('adminRemember');
+        navigate('/admin/login');
+        return;
+      }
     }
   }, [navigate]);
 
