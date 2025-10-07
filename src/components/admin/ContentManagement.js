@@ -113,22 +113,22 @@ const ContentManagement = () => {
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               {t('translationKey')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden sm:table-cell">
               {t('english')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden md:table-cell">
               {t('arabic')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden lg:table-cell">
               {t('french')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden md:table-cell">
               {t('lastModified')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               {t('actions')}
             </th>
           </tr>
@@ -136,35 +136,35 @@ const ContentManagement = () => {
         <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
           {translations.map((translation) => (
             <tr key={translation.key} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm font-medium text-gray-900 dark:text-white">
+              <td className="px-3 sm:px-6 py-4">
+                <div className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">
                   {translation.key}
                 </div>
               </td>
-              <td className="px-6 py-4">
-                <div className="text-sm text-gray-900 dark:text-white max-w-xs truncate">
+              <td className="px-3 sm:px-6 py-4 hidden sm:table-cell">
+                <div className="text-xs sm:text-sm text-gray-900 dark:text-white max-w-xs truncate">
                   {translation.english}
                 </div>
               </td>
-              <td className="px-6 py-4">
-                <div className="text-sm text-gray-900 dark:text-white max-w-xs truncate">
+              <td className="px-3 sm:px-6 py-4 hidden md:table-cell">
+                <div className="text-xs sm:text-sm text-gray-900 dark:text-white max-w-xs truncate">
                   {translation.arabic}
                 </div>
               </td>
-              <td className="px-6 py-4">
-                <div className="text-sm text-gray-900 dark:text-white max-w-xs truncate">
+              <td className="px-3 sm:px-6 py-4 hidden lg:table-cell">
+                <div className="text-xs sm:text-sm text-gray-900 dark:text-white max-w-xs truncate">
                   {translation.french}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900 dark:text-white">
+              <td className="px-3 sm:px-6 py-4 hidden md:table-cell">
+                <div className="text-xs sm:text-sm text-gray-900 dark:text-white">
                   {translation.lastModified}
                 </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                   {t('modifiedBy')} {translation.modifiedBy}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <td className="px-3 sm:px-6 py-4 text-xs sm:text-sm font-medium">
                 <div className="flex space-x-2">
                   <button className="text-primary-600 hover:text-primary-900 dark:text-primary-400 dark:hover:text-primary-300">
                     {t('edit')}
@@ -186,22 +186,22 @@ const ContentManagement = () => {
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               {t('pages')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden sm:table-cell">
               {t('slug')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               {t('status')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden md:table-cell">
               {t('views')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden md:table-cell">
               {t('lastModified')}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               {t('actions')}
             </th>
           </tr>
@@ -209,36 +209,36 @@ const ContentManagement = () => {
         <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
           {pages.map((page) => (
             <tr key={page.id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm font-medium text-gray-900 dark:text-white">
+              <td className="px-3 sm:px-6 py-4">
+                <div className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">
                   {page.title}
                 </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                   ID: {page.id}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900 dark:text-white">
+              <td className="px-3 sm:px-6 py-4 hidden sm:table-cell">
+                <div className="text-xs sm:text-sm text-gray-900 dark:text-white">
                   {page.slug}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(page.status)}`}>
+              <td className="px-3 sm:px-6 py-4">
+                <span className={`px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs font-medium rounded-full ${getStatusColor(page.status)}`}>
                   {page.status}
                 </span>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+              <td className="px-3 sm:px-6 py-4 hidden md:table-cell text-xs sm:text-sm text-gray-900 dark:text-white">
                 {page.views.toLocaleString()}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900 dark:text-white">
+              <td className="px-3 sm:px-6 py-4 hidden md:table-cell">
+                <div className="text-xs sm:text-sm text-gray-900 dark:text-white">
                   {page.lastModified}
                 </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                   {t('modifiedBy')} {page.modifiedBy}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <td className="px-3 sm:px-6 py-4 text-xs sm:text-sm font-medium">
                 <div className="flex space-x-2">
                   <button className="text-primary-600 hover:text-primary-900 dark:text-primary-400 dark:hover:text-primary-300">
                     {t('edit')}
@@ -272,12 +272,12 @@ const ContentManagement = () => {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3 sm:space-y-4 md:space-y-6">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-3 sm:space-y-0">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">{t('contentManagement')}</h1>
-          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{t('manageTranslationsPagesMedia')}</p>
+          <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">{t('contentManagement')}</h1>
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300">{t('manageTranslationsPagesMedia')}</p>
         </div>
         <button
           onClick={() => setShowAddModal(true)}
@@ -358,12 +358,12 @@ const ContentManagement = () => {
 
       {/* Tabs */}
       <div className="border-b border-gray-200 dark:border-gray-700">
-        <nav className="-mb-px flex space-x-8">
+        <nav className="-mb-px flex flex-wrap gap-1 sm:gap-2 md:space-x-8">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`py-2 px-1 border-b-2 font-medium text-sm ${
+              className={`py-2 px-1 border-b-2 font-medium text-xs sm:text-sm whitespace-nowrap ${
                 activeTab === tab.id
                   ? 'border-primary-500 text-primary-600 dark:text-primary-400'
                   : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'

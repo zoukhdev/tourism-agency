@@ -518,11 +518,11 @@ const SettingsPanel = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3 sm:space-y-4 md:space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">{t('settings')}</h1>
-        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{t('configureWebsiteSettings')}</p>
+        <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">{t('settings')}</h1>
+        <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300">{t('configureWebsiteSettings')}</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">

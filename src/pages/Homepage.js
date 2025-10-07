@@ -12,6 +12,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
+
+// Import images
+import hajjImage from '../images/pexels-w4ed-3742589.jpg';
+import umrahImage from '../images/pexels-rushdi-fatani-782816372-19042360.jpg';
 import DebugPanel from '../components/DebugPanel';
 import { debugLog, performanceMonitor, lifecycleLogger } from '../utils/debug';
 
@@ -73,7 +77,7 @@ const Homepage = () => {
       title: "Early Bird Hajj 2024",
       description: "Book your Hajj journey now and save up to 15% on premium packages",
       discount: "15% OFF",
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: hajjImage,
       validUntil: "March 31, 2024"
     },
     {
@@ -81,7 +85,7 @@ const Homepage = () => {
       title: "Umrah Special Package",
       description: "Complete Umrah experience with 5-star accommodation and guided tours",
       discount: "20% OFF",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: umrahImage,
       validUntil: "April 15, 2024"
     },
     {
@@ -89,7 +93,7 @@ const Homepage = () => {
       title: "European Summer Tour",
       description: "Explore the beauty of Europe with our curated summer packages",
       discount: "25% OFF",
-      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       validUntil: "May 30, 2024"
     }
   ];

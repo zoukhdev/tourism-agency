@@ -10,8 +10,7 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOp
       label: t('dashboardOverview'),
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5a2 2 0 012-2h4a2 2 0 012 2v6H8V5z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
         </svg>
       )
     },
@@ -20,7 +19,7 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOp
       label: t('packageManagement'),
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
         </svg>
       )
     },
@@ -29,7 +28,7 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOp
       label: t('bookingManagement'),
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       )
     },
@@ -38,7 +37,7 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOp
       label: t('userManagement'),
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
         </svg>
       )
     },
@@ -47,7 +46,7 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOp
       label: t('contentManagement'),
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
         </svg>
       )
     },
@@ -56,7 +55,7 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOp
       label: t('analyticsReports'),
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       )
     },
@@ -83,16 +82,16 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOp
       )}
       
       {/* Sidebar */}
-      <aside className={`fixed left-0 top-20 bottom-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-all duration-300 z-40 ${
-        collapsed ? 'w-16' : 'w-64'
+      <aside className={`fixed left-0 top-16 sm:top-20 bottom-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-all duration-300 z-40 ${
+        collapsed ? 'w-14 sm:w-16' : 'w-56 sm:w-64'
       } ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
       } ${
-        !mobileMenuOpen && collapsed ? 'lg:w-16' : ''
+        !mobileMenuOpen && collapsed ? 'lg:w-14 xl:w-16' : ''
       }`}>
       <div className="h-full overflow-y-auto">
-        <nav className="p-4">
-          <ul className="space-y-2">
+        <nav className="p-2 sm:p-3 md:p-4">
+          <ul className="space-y-1 sm:space-y-2">
             {menuItems.map((item) => (
               <li key={item.id}>
                 <button
@@ -100,17 +99,19 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOp
                     setActiveSection(item.id);
                     setMobileMenuOpen(false);
                   }}
-                  className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                  className={`w-full flex items-center px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors duration-200 ${
                     activeSection === item.id
                       ? 'bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300'
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
-                  <span className={`${collapsed ? 'mx-auto' : 'mr-3'}`}>
-                    {item.icon}
+                  <span className={`${collapsed ? 'mx-auto' : 'mr-2 sm:mr-3'}`}>
+                    <div className="w-4 h-4 sm:w-5 sm:h-5">
+                      {item.icon}
+                    </div>
                   </span>
                   {!collapsed && (
-                    <span className="truncate">{item.label}</span>
+                    <span className="truncate text-xs sm:text-sm">{item.label}</span>
                   )}
                 </button>
               </li>
@@ -120,22 +121,22 @@ const AdminSidebar = ({ activeSection, setActiveSection, collapsed, mobileMenuOp
 
         {/* Quick Stats */}
         {!collapsed && (
-          <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-            <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+          <div className="p-2 sm:p-3 md:p-4 border-t border-gray-200 dark:border-gray-700">
+            <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 sm:mb-3">
               {t('quickStats')}
             </h3>
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-600 dark:text-gray-400">{t('totalBookings')}</span>
-                <span className="font-medium text-gray-900 dark:text-white">1,247</span>
+            <div className="space-y-1.5 sm:space-y-2">
+              <div className="flex justify-between text-xs sm:text-sm">
+                <span className="text-gray-600 dark:text-gray-400 truncate">{t('totalBookings')}</span>
+                <span className="font-medium text-gray-900 dark:text-white ml-2">1,247</span>
               </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-600 dark:text-gray-400">{t('activePackages')}</span>
-                <span className="font-medium text-gray-900 dark:text-white">24</span>
+              <div className="flex justify-between text-xs sm:text-sm">
+                <span className="text-gray-600 dark:text-gray-400 truncate">{t('activePackages')}</span>
+                <span className="font-medium text-gray-900 dark:text-white ml-2">24</span>
               </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-600 dark:text-gray-400">{t('revenue')}</span>
-                <span className="font-medium text-green-600">$2.4M</span>
+              <div className="flex justify-between text-xs sm:text-sm">
+                <span className="text-gray-600 dark:text-gray-400 truncate">{t('revenue')}</span>
+                <span className="font-medium text-green-600 ml-2">$2.4M</span>
               </div>
             </div>
           </div>

@@ -55,28 +55,28 @@ const AnalyticsDashboard = () => {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3 sm:space-y-4 md:space-y-6">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-3 sm:space-y-0">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">{t('analyticsReports')}</h1>
-          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{t('trackBusinessPerformance')}</p>
+          <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">{t('analyticsReports')}</h1>
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300">{t('trackBusinessPerformance')}</p>
         </div>
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
           <select
             value={activePeriod}
             onChange={(e) => setActivePeriod(e.target.value)}
-            className="input-field w-full sm:w-40"
+            className="input-field w-full sm:w-40 text-sm"
           >
             {periods.map((period) => (
               <option key={period.id} value={period.id}>{period.label}</option>
             ))}
           </select>
-          <button className="btn-outline flex items-center justify-center space-x-2 w-full sm:w-auto">
-            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button className="btn-outline flex items-center justify-center space-x-1.5 sm:space-x-2 w-full sm:w-auto text-sm">
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            <span className="text-sm sm:text-base">{t('exportReport')}</span>
+            <span className="text-xs sm:text-sm md:text-base">{t('exportReport')}</span>
           </button>
         </div>
       </div>
@@ -224,16 +224,16 @@ const AnalyticsDashboard = () => {
           <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
             <thead className="bg-gray-50 dark:bg-gray-700">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                   {t('package')}
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden sm:table-cell">
                   {t('bookings')}
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden md:table-cell">
                   {t('revenue')}
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden lg:table-cell">
                   {t('avgValue')}
                 </th>
               </tr>
@@ -241,18 +241,18 @@ const AnalyticsDashboard = () => {
             <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
               {analyticsData.topPackages.map((pkg, index) => (
                 <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                  <td className="px-3 sm:px-6 py-4">
+                    <div className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">
                       {pkg.name}
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                  <td className="px-3 sm:px-6 py-4 hidden sm:table-cell text-xs sm:text-sm text-gray-900 dark:text-white">
                     {pkg.bookings}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                  <td className="px-3 sm:px-6 py-4 hidden md:table-cell text-xs sm:text-sm text-gray-900 dark:text-white">
                     ${pkg.revenue.toLocaleString()}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                  <td className="px-3 sm:px-6 py-4 hidden lg:table-cell text-xs sm:text-sm text-gray-900 dark:text-white">
                     ${Math.round(pkg.revenue / pkg.bookings).toLocaleString()}
                   </td>
                 </tr>
