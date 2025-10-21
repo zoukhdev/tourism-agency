@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
-import { secureApiRequest, sanitizeInput, rateLimit } from '../utils/security';
+import { sanitizeInput, rateLimit } from '../utils/security';
+import { isBackendAvailable } from '../utils/environment';
 
 const AdminLogin = () => {
   const { t, isDarkMode } = useApp();
@@ -71,7 +72,13 @@ const AdminLogin = () => {
         rememberMe: formData.rememberMe
       };
       
-      // DEMO AUTHENTICATION - Check credentials
+      // DEMO AUTHENTICATION - Check credentials (works on both localhost and Vercel)
+      console.log('Authentication attempt:', {
+        email: sanitizedData.email,
+        password: sanitizedData.password,
+        environment: isBackendAvailable() ? 'backend-available' : 'frontend-only'
+      });
+      
       if (sanitizedData.email === 'admin@wrtour.com' && sanitizedData.password === 'Admin123!') {
         // Mock admin data
         const adminData = {
