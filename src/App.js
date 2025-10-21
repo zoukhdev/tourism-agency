@@ -14,6 +14,7 @@ import { AppProvider } from './context/AppContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import Homepage from './pages/Homepage';
 
 // Lazy load components for better performance
@@ -48,8 +49,11 @@ function App() {
             v7_relativeSplatPath: true
           }}
         >
+          {/* Scroll to top on route changes */}
+          <ScrollToTop />
+          
           {/* Main app container with dark mode support */}
-          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden">
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               {/* ===========================================

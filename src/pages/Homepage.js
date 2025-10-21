@@ -16,12 +16,13 @@ import { useApp } from '../context/AppContext';
 // Import images
 import hajjImage from '../images/pexels-w4ed-3742589.jpg';
 import umrahImage from '../images/pexels-rushdi-fatani-782816372-19042360.jpg';
+import kaabbaImage from '../images/kaabba.png';
 import DebugPanel from '../components/DebugPanel';
 import { debugLog, performanceMonitor } from '../utils/debug';
 
 // Memoized ServiceCard component for better performance
 const ServiceCard = memo(({ service, t }) => (
-  <div className="card text-center">
+  <div className="card text-center pb-6">
     <div className="flex justify-center mb-4">
       <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center text-primary-600 dark:text-primary-400">
         {service.icon}
@@ -93,27 +94,27 @@ const Homepage = () => {
   const specialOffers = [
     {
       id: 1,
-      title: "Early Bird Hajj 2024",
-      description: "Book your Hajj journey now and save up to 15% on premium packages",
+      title: t('earlyBirdHajj2024'),
+      description: t('earlyBirdHajjDesc'),
       discount: "15% OFF",
       image: hajjImage,
-      validUntil: "March 31, 2024"
+      validUntil: t('march31_2024')
     },
     {
       id: 2,
-      title: "Umrah Special Package",
-      description: "Complete Umrah experience with 5-star accommodation and guided tours",
+      title: t('umrahSpecialPackage'),
+      description: t('umrahSpecialDesc'),
       discount: "20% OFF",
       image: umrahImage,
-      validUntil: "April 15, 2024"
+      validUntil: t('april15_2024')
     },
     {
       id: 3,
-      title: "European Summer Tour",
-      description: "Explore the beauty of Europe with our curated summer packages",
+      title: t('europeanSummerTour'),
+      description: t('europeanSummerDesc'),
       discount: "25% OFF",
       image: "https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      validUntil: "May 30, 2024"
+      validUntil: t('may30_2024')
     }
   ];
 
@@ -159,7 +160,7 @@ const Homepage = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* ===========================================
           HERO SECTION
           Main banner with rotating background images
@@ -338,8 +339,8 @@ const Homepage = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Travel experience"
+                src={kaabbaImage}
+                alt="Kaaba and Grand Mosque"
                 className="rounded-xl shadow-2xl"
               />
             </div>

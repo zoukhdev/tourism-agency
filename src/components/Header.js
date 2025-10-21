@@ -13,6 +13,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
+import logoImage from '../images/logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,11 +81,15 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">AH</span>
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+                <img 
+                  src={logoImage} 
+                  alt="واحة الرجاء تور" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="ml-3 text-xl font-bold text-gray-900 dark:text-white">
-                Al-Hijrah Tourism
+                واحة الرجاء تور
               </span>
             </Link>
           </div>

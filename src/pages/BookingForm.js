@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 
 const BookingForm = () => {
   const { t } = useApp();
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const [formData, setFormData] = useState({
     // Service Selection
     serviceType: '',
@@ -13,10 +19,6 @@ const BookingForm = () => {
     lastName: '',
     email: '',
     phone: '',
-    dateOfBirth: '',
-    nationality: '',
-    passportNumber: '',
-    passportExpiry: '',
     
     // Travel Details
     departureCity: '',
@@ -34,13 +36,8 @@ const BookingForm = () => {
     airportTransfer: false,
     additionalServices: [],
     
-    // Emergency Contact
-    emergencyContactName: '',
-    emergencyContactPhone: '',
-    emergencyContactRelation: '',
     
     // Payment Information
-    paymentMethod: '',
     agreeToTerms: false
   });
 
@@ -55,19 +52,19 @@ const BookingForm = () => {
 
   const packages = {
     hajj: [
-      { id: 1, name: 'Premium Hajj Package 2024', price: 4500 },
-      { id: 2, name: 'Standard Hajj Package 2024', price: 3200 },
-      { id: 6, name: 'Economy Hajj Package 2024', price: 2500 }
+      { id: 1, name: t('premiumHajjPackage2024'), price: 4500 },
+      { id: 2, name: t('standardHajjPackage2024'), price: 3200 },
+      { id: 6, name: t('economyHajjPackage2024'), price: 2500 }
     ],
     umrah: [
-      { id: 3, name: 'Luxury Umrah Package', price: 2800 },
-      { id: 4, name: 'Family Umrah Package', price: 2200 },
-      { id: 5, name: 'Quick Umrah Package', price: 1800 }
+      { id: 3, name: t('luxuryUmrahPackage'), price: 2800 },
+      { id: 4, name: t('familyUmrahPackage'), price: 2200 },
+      { id: 5, name: t('quickUmrahPackage'), price: 1800 }
     ],
     'global-tourism': [
-      { id: 7, name: 'European Cultural Heritage Tour', price: 3200 },
-      { id: 8, name: 'Southeast Asia Adventure', price: 2800 },
-      { id: 9, name: 'African Safari Experience', price: 4500 }
+      { id: 7, name: t('europeanCulturalHeritageTour'), price: 3200 },
+      { id: 8, name: t('southeastAsiaAdventure'), price: 2800 },
+      { id: 9, name: t('africanSafariExperience'), price: 4500 }
     ]
   };
 
@@ -130,10 +127,6 @@ const BookingForm = () => {
         if (!formData.lastName) newErrors.lastName = 'Last name is required';
         if (!formData.email) newErrors.email = 'Email is required';
         if (!formData.phone) newErrors.phone = 'Phone number is required';
-        if (!formData.dateOfBirth) newErrors.dateOfBirth = 'Date of birth is required';
-        if (!formData.nationality) newErrors.nationality = 'Nationality is required';
-        if (!formData.passportNumber) newErrors.passportNumber = 'Passport number is required';
-        if (!formData.passportExpiry) newErrors.passportExpiry = 'Passport expiry date is required';
         break;
       case 3:
         if (!formData.departureCity) newErrors.departureCity = 'Departure city is required';
@@ -142,12 +135,6 @@ const BookingForm = () => {
         if (!formData.roomType) newErrors.roomType = 'Room type is required';
         break;
       case 4:
-        if (!formData.emergencyContactName) newErrors.emergencyContactName = 'Emergency contact name is required';
-        if (!formData.emergencyContactPhone) newErrors.emergencyContactPhone = 'Emergency contact phone is required';
-        if (!formData.emergencyContactRelation) newErrors.emergencyContactRelation = 'Emergency contact relation is required';
-        break;
-      case 5:
-        if (!formData.paymentMethod) newErrors.paymentMethod = 'Payment method is required';
         if (!formData.agreeToTerms) newErrors.agreeToTerms = 'You must agree to the terms and conditions';
         break;
       default:
@@ -223,7 +210,8 @@ const BookingForm = () => {
       {/* Progress Bar */}
       <section className="py-8 bg-white dark:bg-gray-800 shadow-sm transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          {/* Desktop Progress Bar */}
+          <div className="hidden md:flex items-center justify-between">
             {steps.map((step, index) => (
               <div key={step.number} className="flex items-center">
                 <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${
@@ -245,6 +233,60 @@ const BookingForm = () => {
                 )}
               </div>
             ))}
+          </div>
+
+          {/* Mobile Progress Bar */}
+          <div className="md:hidden">
+            {/* Current Step Display */}
+            <div className="text-center mb-4">
+              <div className="flex items-center justify-center mb-2">
+                <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 ${
+                  'bg-primary-600 border-primary-600 text-white'
+                }`}>
+                  {currentStep}
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-primary-600">
+                {steps[currentStep - 1]?.title}
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Step {currentStep} of {steps.length}
+              </p>
+            </div>
+
+            {/* Progress Dots */}
+            <div className="flex justify-center space-x-2">
+              {steps.map((step, index) => (
+                <div key={step.number} className="flex flex-col items-center">
+                  <div className={`w-3 h-3 rounded-full ${
+                    currentStep >= step.number 
+                      ? 'bg-primary-600' 
+                      : 'bg-gray-300 dark:bg-gray-600'
+                  }`} />
+                  {index < steps.length - 1 && (
+                    <div className={`w-8 h-0.5 mt-1 ${
+                      currentStep > step.number ? 'bg-primary-600' : 'bg-gray-300 dark:bg-gray-600'
+                    }`} />
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Step Labels (Compact) */}
+            <div className="flex justify-between mt-4 text-xs text-gray-500 dark:text-gray-400">
+              {steps.map((step) => (
+                <div key={step.number} className="text-center flex-1">
+                  <div className={`font-medium ${
+                    currentStep >= step.number ? 'text-primary-600' : 'text-gray-500 dark:text-gray-400'
+                  }`}>
+                    {step.number}
+                  </div>
+                  <div className="truncate max-w-16">
+                    {step.title.split(' ')[0]}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -367,61 +409,6 @@ const BookingForm = () => {
                     {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      {t('dateOfBirth')} *
-                    </label>
-                    <input
-                      type="date"
-                      name="dateOfBirth"
-                      value={formData.dateOfBirth}
-                      onChange={handleInputChange}
-                      className="input-field"
-                    />
-                    {errors.dateOfBirth && <p className="text-red-500 text-sm mt-1">{errors.dateOfBirth}</p>}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      {t('nationality')} *
-                    </label>
-                    <input
-                      type="text"
-                      name="nationality"
-                      value={formData.nationality}
-                      onChange={handleInputChange}
-                      className="input-field"
-                    />
-                    {errors.nationality && <p className="text-red-500 text-sm mt-1">{errors.nationality}</p>}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      {t('passportNumber')} *
-                    </label>
-                    <input
-                      type="text"
-                      name="passportNumber"
-                      value={formData.passportNumber}
-                      onChange={handleInputChange}
-                      className="input-field"
-                    />
-                    {errors.passportNumber && <p className="text-red-500 text-sm mt-1">{errors.passportNumber}</p>}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      {t('passportExpiryDate')} *
-                    </label>
-                    <input
-                      type="date"
-                      name="passportExpiry"
-                      value={formData.passportExpiry}
-                      onChange={handleInputChange}
-                      className="input-field"
-                    />
-                    {errors.passportExpiry && <p className="text-red-500 text-sm mt-1">{errors.passportExpiry}</p>}
-                  </div>
                 </div>
               </div>
             )}
@@ -443,7 +430,7 @@ const BookingForm = () => {
                         value={formData.departureCity}
                         onChange={handleInputChange}
                         className="input-field"
-                        placeholder="e.g., New York, London, Dubai"
+                        placeholder={t('placeholderDepartureCity')}
                       />
                       {errors.departureCity && <p className="text-red-500 text-sm mt-1">{errors.departureCity}</p>}
                     </div>
@@ -523,7 +510,7 @@ const BookingForm = () => {
                       onChange={handleInputChange}
                       rows={4}
                       className="input-field"
-                      placeholder="Any special dietary requirements, accessibility needs, or other requests..."
+                      placeholder={t('placeholderSpecialRequests')}
                     />
                   </div>
 
@@ -549,66 +536,9 @@ const BookingForm = () => {
               </div>
             )}
 
-            {/* Step 4: Emergency Contact */}
+
+            {/* Step 4: Payment & Confirmation */}
             {currentStep === 4 && (
-              <div className="card p-8">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('emergencyContact')}</h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      {t('emergencyContactName')} *
-                    </label>
-                    <input
-                      type="text"
-                      name="emergencyContactName"
-                      value={formData.emergencyContactName}
-                      onChange={handleInputChange}
-                      className="input-field"
-                    />
-                    {errors.emergencyContactName && <p className="text-red-500 text-sm mt-1">{errors.emergencyContactName}</p>}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      {t('emergencyContactPhone')} *
-                    </label>
-                    <input
-                      type="tel"
-                      name="emergencyContactPhone"
-                      value={formData.emergencyContactPhone}
-                      onChange={handleInputChange}
-                      className="input-field"
-                    />
-                    {errors.emergencyContactPhone && <p className="text-red-500 text-sm mt-1">{errors.emergencyContactPhone}</p>}
-                  </div>
-
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      {t('relationship')} *
-                    </label>
-                    <select
-                      name="emergencyContactRelation"
-                      value={formData.emergencyContactRelation}
-                      onChange={handleInputChange}
-                      className="input-field"
-                    >
-                      <option value="">{t('selectRelationship')}</option>
-                      <option value="spouse">{t('spouse')}</option>
-                      <option value="parent">{t('parent')}</option>
-                      <option value="sibling">{t('sibling')}</option>
-                      <option value="child">{t('child')}</option>
-                      <option value="friend">{t('friend')}</option>
-                      <option value="other">{t('other')}</option>
-                    </select>
-                    {errors.emergencyContactRelation && <p className="text-red-500 text-sm mt-1">{errors.emergencyContactRelation}</p>}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Step 5: Payment & Confirmation */}
-            {currentStep === 5 && (
               <div className="card p-8">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('paymentConfirmation')}</h2>
                 
@@ -652,25 +582,6 @@ const BookingForm = () => {
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      {t('paymentMethod')} *
-                    </label>
-                    <select
-                      name="paymentMethod"
-                      value={formData.paymentMethod}
-                      onChange={handleInputChange}
-                      className="input-field"
-                    >
-                      <option value="">{t('selectPaymentMethod')}</option>
-                      {paymentMethods.map(method => (
-                        <option key={method.value} value={method.value}>
-                          {method.label}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.paymentMethod && <p className="text-red-500 text-sm mt-1">{errors.paymentMethod}</p>}
-                  </div>
 
                   <div className="flex items-start">
                     <input
@@ -704,7 +615,7 @@ const BookingForm = () => {
                 {t('previous')}
               </button>
 
-              {currentStep < 5 ? (
+              {currentStep < 4 ? (
                 <button
                   type="button"
                   onClick={handleNext}

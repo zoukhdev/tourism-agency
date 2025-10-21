@@ -71,27 +71,27 @@ const AdminLogin = () => {
         rememberMe: formData.rememberMe
       };
       
-      // SECURITY: Use secure API request with CSRF protection
-      const response = await secureApiRequest('/api/admin/login', {
-        method: 'POST',
-        body: JSON.stringify(sanitizedData)
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        
-        // Store admin data securely
+      // DEMO AUTHENTICATION - Check credentials
+      if (sanitizedData.email === 'admin@alhijrah.com' && sanitizedData.password === 'Admin123!') {
+        // Mock admin data
         const adminData = {
-          id: data.user.id,
-          name: data.user.name,
-          email: data.user.email,
-          role: data.user.role,
-          permissions: data.user.permissions,
-          avatar: data.user.avatar,
-          joinDate: data.user.joinDate,
+          id: '1',
+          name: 'Admin User',
+          email: 'admin@alhijrah.com',
+          role: 'admin',
+          permissions: {
+            canManageUsers: true,
+            canManageBookings: true,
+            canManagePackages: true,
+            canManageContent: true,
+            canViewAnalytics: true,
+            canManageSettings: true
+          },
+          avatar: null,
+          joinDate: new Date().toISOString(),
           isAdmin: true,
-          token: data.token,
-          expiresAt: data.expiresAt
+          token: 'demo-token-' + Date.now(),
+          expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString()
         };
         
         // Store in sessionStorage for better security (clears on browser close)
@@ -102,16 +102,15 @@ const AdminLogin = () => {
         if (formData.rememberMe) {
           const rememberData = {
             ...adminData,
-            rememberToken: data.rememberToken,
-            rememberExpiresAt: data.rememberExpiresAt
+            rememberToken: 'demo-remember-token-' + Date.now(),
+            rememberExpiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
           };
           localStorage.setItem('adminRemember', JSON.stringify(rememberData));
         }
         
         navigate('/admin');
       } else {
-        const errorData = await response.json();
-        setErrors({ general: errorData.message || t('invalidCredentials') });
+        setErrors({ general: 'Invalid credentials. Use admin@alhijrah.com / Admin123!' });
       }
     } catch (error) {
       // SECURITY: Don't expose internal error details
