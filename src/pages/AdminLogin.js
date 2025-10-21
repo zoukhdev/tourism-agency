@@ -77,13 +77,15 @@ const AdminLogin = () => {
       const isValidEmail = emailPattern.test(sanitizedData.email);
       
       // DEMO AUTHENTICATION - Check credentials (works on both localhost and Vercel)
-      console.log('Authentication attempt:', {
-        email: sanitizedData.email,
-        password: sanitizedData.password,
-        environment: isBackendAvailable() ? 'backend-available' : 'frontend-only',
-        emailMatch: isValidEmail,
-        passwordMatch: sanitizedData.password === 'Admin123!',
-        emailPattern: emailPattern.toString()
+      console.log('🔐 AUTHENTICATION DEBUG:', {
+        'Raw Email': formData.email,
+        'Sanitized Email': sanitizedData.email,
+        'Password': sanitizedData.password,
+        'Environment': isBackendAvailable() ? 'backend-available' : 'frontend-only',
+        'Email Match': isValidEmail,
+        'Password Match': sanitizedData.password === 'Admin123!',
+        'Email Pattern': emailPattern.toString(),
+        'Will Authenticate': isValidEmail && sanitizedData.password === 'Admin123!'
       });
       
       if (isValidEmail && sanitizedData.password === 'Admin123!') {
@@ -122,6 +124,7 @@ const AdminLogin = () => {
           localStorage.setItem('adminRemember', JSON.stringify(rememberData));
         }
         
+        console.log('✅ AUTHENTICATION SUCCESS: Redirecting to admin dashboard');
         navigate('/admin');
       } else {
         setErrors({ general: 'Invalid credentials. Use admin@WRtour.com / Admin123!' });
