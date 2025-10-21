@@ -72,7 +72,7 @@ const AdminLogin = () => {
       };
       
       // DEMO AUTHENTICATION - Check credentials
-      if (sanitizedData.email === 'admin@WRtour.com' && sanitizedData.password === 'Admin123!') {
+      if (sanitizedData.email === 'admin@wrtour.com' && sanitizedData.password === 'Admin123!') {
         // Mock admin data
         const adminData = {
           id: '1',
