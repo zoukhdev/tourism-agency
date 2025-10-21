@@ -57,7 +57,7 @@ const UserManagement = () => {
     {
       id: 1,
       name: 'Admin User',
-      email: 'admin@alhijrah.com',
+        email: 'admin@WRtour.com',
       role: 'Administrator',
       department: 'Management',
       status: 'active',

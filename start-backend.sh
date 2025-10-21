@@ -11,7 +11,7 @@ npm install
 echo
 echo "Starting server..."
 echo "Default Admin Credentials:"
-echo "Email: admin@alhijrah.com"
+echo "Email: admin@WRtour.com"
 echo "Password: Admin123!"
 echo
 echo "Server will start on http://localhost:5000"

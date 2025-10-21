@@ -72,12 +72,12 @@ const AdminLogin = () => {
       };
       
       // DEMO AUTHENTICATION - Check credentials
-      if (sanitizedData.email === 'admin@alhijrah.com' && sanitizedData.password === 'Admin123!') {
+      if (sanitizedData.email === 'admin@WRtour.com' && sanitizedData.password === 'Admin123!') {
         // Mock admin data
         const adminData = {
           id: '1',
           name: 'Admin User',
-          email: 'admin@alhijrah.com',
+          email: 'admin@WRtour.com',
           role: 'admin',
           permissions: {
             canManageUsers: true,
@@ -110,7 +110,7 @@ const AdminLogin = () => {
         
         navigate('/admin');
       } else {
-        setErrors({ general: 'Invalid credentials. Use admin@alhijrah.com / Admin123!' });
+        setErrors({ general: 'Invalid credentials. Use admin@WRtour.com / Admin123!' });
       }
     } catch (error) {
       // SECURITY: Don't expose internal error details

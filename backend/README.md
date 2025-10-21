@@ -60,7 +60,7 @@ A complete Node.js/Express backend API for the Tourism Agency Admin Dashboard.
 
 After starting the server, a default admin user will be created:
 
-- **Email**: `admin@alhijrah.com`
+- **Email**: `admin@WRtour.com`
 - **Password**: `Admin123!`
 
 ## API Endpoints
@@ -111,7 +111,7 @@ JWT_SECRET=your-super-secret-jwt-key
 JWT_EXPIRES_IN=24h
 
 # Admin Credentials
-ADMIN_EMAIL=admin@alhijrah.com
+ADMIN_EMAIL=admin@WRtour.com
 ADMIN_PASSWORD=Admin123!
 
 # CORS
