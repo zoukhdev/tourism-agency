@@ -72,14 +72,21 @@ const AdminLogin = () => {
         rememberMe: formData.rememberMe
       };
       
+      // More flexible email check - handle any case variation
+      const emailPattern = /^admin@wrtour\.com$/i;
+      const isValidEmail = emailPattern.test(sanitizedData.email);
+      
       // DEMO AUTHENTICATION - Check credentials (works on both localhost and Vercel)
       console.log('Authentication attempt:', {
         email: sanitizedData.email,
         password: sanitizedData.password,
-        environment: isBackendAvailable() ? 'backend-available' : 'frontend-only'
+        environment: isBackendAvailable() ? 'backend-available' : 'frontend-only',
+        emailMatch: isValidEmail,
+        passwordMatch: sanitizedData.password === 'Admin123!',
+        emailPattern: emailPattern.toString()
       });
       
-      if (sanitizedData.email === 'admin@wrtour.com' && sanitizedData.password === 'Admin123!') {
+      if (isValidEmail && sanitizedData.password === 'Admin123!') {
         // Mock admin data
         const adminData = {
           id: '1',
